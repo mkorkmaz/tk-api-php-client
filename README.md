@@ -15,7 +15,7 @@ $client = ClientBuilder::create()
 	->setEnvironment(getenv('TK_API_URL'), getenv('TK_API_KEY'), getenv('TK_API_SECRET'))
 	->build();
 ```
-### Call Get Time Table Example
+### Calling Get Timetable Example
 ```PHP
 $departureTime = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
 $originLocation = new ValueObject\Location('IST', true);
