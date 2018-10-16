@@ -2,14 +2,20 @@
 
 Documentation needs to be updated.
 
+### Installation
+
+```bash
+composer require mkorkmaz/tk-api-php-sdk
+```
 
 ### Creating API Client
 
 
 ```PHP
+<?php
+
+include 'vendor/autoload.php'
 use TK\SDK\ClientBuilder;
-use DateTimeImmutable;
-use TK\SDK\ValueObject;
 
 $client = ClientBuilder::create()
 	->setEnvironment(getenv('TK_API_URL'), getenv('TK_API_KEY'), getenv('TK_API_SECRET'))
@@ -17,13 +23,18 @@ $client = ClientBuilder::create()
 ```
 ### Calling Get Timetable Example
 ```PHP
+<?php
+
+use DateTimeImmutable;
+use TK\SDK\ValueObject;
+
 $departureTime = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
 $originLocation = new ValueObject\Location('IST', true);
 $destinationLocation  = new ValueObject\Location('JFK', true);
 $departureDateTime = new ValueObject\DepartureDateTime(
 	new DateTimeImmutable($departureTime),
-    'P3D',
-    'P3D'
+	'P3D',
+	'P3D'
 );
 $originDestinationInformation = new ValueObject\OriginDestinationInformation(
 	$departureDateTime,
