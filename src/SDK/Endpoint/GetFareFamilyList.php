@@ -1,0 +1,15 @@
+<?php
+declare(strict_types=1);
+
+namespace TK\SDK\Endpoint;
+
+use TK\SDK\ValueObject\GetFareFamilyListParameters;
+
+final class GetFareFamilyList extends EndpointAbstract implements EndpointInterface
+{
+    public function __construct(GetFareFamilyListParameters $queryParameters)
+    {
+        $this->endpoint = '/getFareFamilyList';
+        $this->queryParameters = $queryParameters->getValue();
+    }
+}

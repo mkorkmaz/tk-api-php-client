@@ -1,0 +1,35 @@
+{
+    "name": "mkorkmaz/tk-api-php-sdk",
+    "description": "Unofficial Turkish Airlines TK API PHP SDK",
+    "type": "library",
+    "require": {
+        "php": "^7.1",
+        "ext-json":  "^1.3",
+        "guzzlehttp/guzzle": "^6.3",
+        "psr/http-message": "^1.0",
+        "psr/log": "^1.0",
+        "monolog/monolog": "^1.9"
+    },
+    "require-dev": {
+        "codeception/codeception": "^2.5",
+        "vlucas/phpdotenv": "^2.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mehmet Korkmaz",
+            "email": "mehmet@mkorkmaz.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4":  {
+            "TK\\SDK\\": "src/SDK/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4":  {
+            "TK\\Test\\Unit\\": "tests/unit/"
+        }
+    }
+}

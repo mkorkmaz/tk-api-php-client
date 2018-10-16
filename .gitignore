@@ -1,0 +1,9 @@
+#project base ignores
+.env
+composer.lock
+vendor/
+test/_data/*
+test/_output/*
+
+#mac ignores
+.DS_Store
