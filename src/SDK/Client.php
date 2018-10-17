@@ -130,7 +130,9 @@ final class Client
             'status' => $response->getStatusCode(),
             'reason' => $response->getReasonPhrase(),
             'headers' => $response->getHeaders(),
-            'data' => $responseBody
+            'requestId' => $responseBody['requestId'],
+            'data' => $responseBody['data']
+
         ];
     }
 
