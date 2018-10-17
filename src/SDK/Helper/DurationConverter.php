@@ -15,7 +15,9 @@ class DurationConverter
     {
         preg_match('/^P(.*?)Y(.*?)M(.*?)DT(.*?)H(.*?)M(.*?)S$/', $duration, $matches);
 
-        list ($ignore, $year, $month, $day, $hour, $minute, $second) = array_map(function($item) { return (float) $item;}, $matches);
+        list ($ignore, $year, $month, $day, $hour, $minute, $second) = array_map(function ($item) {
+            return (float) $item;
+        }, $matches);
 
         $seconds = $year * 365 * 24 * 60 * 60
             + $month * 30 * 24 * 60 * 60
@@ -50,6 +52,4 @@ class DurationConverter
     {
         return round(self::toDay($duration) / 365, 2);
     }
-
-
 }

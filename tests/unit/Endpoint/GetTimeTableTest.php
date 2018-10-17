@@ -36,7 +36,7 @@ class GetTimeTableTest extends EndpointAbstract
         );
         $response = $this->client->getTimetable($getTimetableParameters);
         $this->assertEquals(200, $response['status']);
-        $this->assertEquals('SUCCESS', $response['data']['status']);
-        $this->assertEquals('TK-0000', $response['data']['message']['code']);
+        $this->assertEquals('SUCCESS', $response['response']['status']);
+        $this->assertEquals('TK-0000', $response['response']['code']);
     }
 }

@@ -131,8 +131,12 @@ final class Client
             'reason' => $response->getReasonPhrase(),
             'headers' => $response->getHeaders(),
             'requestId' => $responseBody['requestId'],
-            'data' => $responseBody['data']
+            'response' => [
+                'status' => $responseBody['status'],
+                'code' => $responseBody['message']['code']
 
+            ],
+            'data' => $responseBody['data']
         ];
     }
 
