@@ -1,6 +1,6 @@
 {
     "name": "mkorkmaz/tk-api-php-sdk",
-    "description": "Unofficial Turkish Airlines TK API PHP SDK",
+    "description": "Turkish Airlines TK API Unofficial PHP SDK",
     "type": "library",
     "require": {
         "php": "^7.1",
