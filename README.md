@@ -1,12 +1,22 @@
-# Turkish Airlines API PHP SDK (Unofficial)
+# Turkish Airlines' TK API Unofficial PHP SDK
 
-Documentation needs to be updated.
+See the official documentation at [Turkish Airlines Developer Portal](https://developer.turkishairlines.com/)
+
+To use this library, one has to create a developer account on Developer Portal and create an application to get required API Key and API Secret.
+
 
 ### Installation
 
 ```bash
 composer require mkorkmaz/tk-api-php-sdk
 ```
+
+### Configuration
+
+Put your API Key and API Secret securely in a configuration file or .env etc. Since calling an API endpoint is rate-limited, it is important to secure these information.
+
+Use https://api.turkishairlines.com/test as your api test url during development.
+
 
 ### Creating API Client
 
@@ -53,3 +63,7 @@ $getTimetableParameters = new ValueObject\GetTimetableParameters(
 $response = $client->getTimetable($getTimetableParameters);
 
 ```
+
+### Disclaimer
+
+This SDK is not officially recognized by Turkish Airlines. 
