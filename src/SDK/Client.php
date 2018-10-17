@@ -134,7 +134,6 @@ final class Client
             'response' => [
                 'status' => $responseBody['status'],
                 'code' => $responseBody['message']['code']
-
             ],
             'data' => $responseBody['data']
         ];
