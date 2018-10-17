@@ -24,7 +24,7 @@ Use https://api.turkishairlines.com/test as your api test url during development
 ```PHP
 <?php
 
-include 'vendor/autoload.php'
+include 'vendor/autoload.php';
 use TK\SDK\ClientBuilder;
 
 $client = ClientBuilder::create()
@@ -39,8 +39,8 @@ use DateTimeImmutable;
 use TK\SDK\ValueObject;
 
 $departureTime = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
-$originLocation = new ValueObject\Location('IST', true);
-$destinationLocation  = new ValueObject\Location('JFK', true);
+$originLocation = new ValueObject\Location('IST', ValueObject\Location::MILTIPLE_AIRPORT_TRUE);
+$destinationLocation  = new ValueObject\Location('JFK', ValueObject\Location::MILTIPLE_AIRPORT_TRUE);
 $departureDateTime = new ValueObject\DepartureDateTime(
 	new DateTimeImmutable($departureTime),
 	'P3D',
