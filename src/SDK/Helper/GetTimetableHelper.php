@@ -48,14 +48,15 @@ class GetTimetableHelper
             'DepartureDateTime' => $originDestinationOption['FlightSegment']['DepartureDateTime'],
             'ArrivalDateTime' => $originDestinationOption['FlightSegment']['ArrivalDateTime'],
             'FlightNumber' => $originDestinationOption['FlightSegment']['FlightNumber'],
+            'AirlineCode' => $originDestinationOption['FlightSegment']['OperatingAirline']['Code'],
             'JourneyDuration' => DurationConverter::toMinute(
                 $originDestinationOption['FlightSegment']['JourneyDuration'],
                 DurationConverter::FORMAT_SHORT
             ),
-            'totalDuration' => $flightExtraInfo['totalDuration'],
-            'flightDuration' => $flightExtraInfo['flightDuration'],
-            'transferDuration' => $flightExtraInfo['transferDuration'],
-            'durationType' => 'minute'
+            'TotalDuration' => $flightExtraInfo['totalDuration'],
+            'FlightDuration' => $flightExtraInfo['flightDuration'],
+            'TransferDuration' => $flightExtraInfo['transferDuration'],
+            'DurationType' => 'minute'
         ];
     }
 }
