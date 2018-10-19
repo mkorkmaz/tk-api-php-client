@@ -1,5 +1,7 @@
 # Turkish Airlines' TK API Unofficial PHP SDK
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mkorkmaz/tk-api-php-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mkorkmaz/tk-api-php-sdk/?branch=master) 
+
 See the official documentation at [Turkish Airlines Developer Portal](https://developer.turkishairlines.com/)
 
 To use this library, one has to create a developer account on Developer Portal and create an application to get required API Key and API Secret.
