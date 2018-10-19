@@ -27,8 +27,8 @@ use TK\SDK\ValueObject\OriginDestinationInformation;
 use TK\SDK\ValueObject\AirScheduleRQ;
 use TK\SDK\ValueObject\GetTimetableParameters;
 
-$originLocation = new Location('IST', Location::MILTIPLE_AIRPORT_TRUE);
-$destinationLocation  = new Location('JFK', Location::MILTIPLE_AIRPORT_TRUE);
+$originLocation = new Location('IST', Location::MULTIPLE_AIRPORT_TRUE);
+$destinationLocation  = new Location('JFK', Location::MULTIPLE_AIRPORT_TRUE);
 $departureTime = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
 
 $departureDateTime = new DepartureDateTime(

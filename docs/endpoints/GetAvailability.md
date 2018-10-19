@@ -34,8 +34,8 @@ $departureDateTime = (new DepartureDateTime(
 	'P3D'
 ))->withDateFormat('dM');
 
-$originLocation = new Location('IST', Location::MILTIPLE_AIRPORT_TRUE);
-$destinationLocation  = new Location('ESB', Location::MILTIPLE_AIRPORT_TRUE);
+$originLocation = new Location('IST', Location::MULTIPLE_AIRPORT_TRUE);
+$destinationLocation  = new Location('ESB', Location::MULTIPLE_AIRPORT_TRUE);
 
 $originDestinationInformation = (new OriginDestinationInformation(
 	$departureDateTime,
