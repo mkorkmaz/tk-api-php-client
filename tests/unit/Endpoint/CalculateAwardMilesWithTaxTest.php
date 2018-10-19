@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace TK\Test\Unit\Endpoint;
 
 use DateTimeImmutable;
-use TK\SDK\ValueObject;
+use TK\SDK\ValueObject\CalculateAwardMilesWithTaxParameters;
 
 class CalculateAwardMilesWithTaxTest extends EndpointAbstract
 {
@@ -14,8 +14,8 @@ class CalculateAwardMilesWithTaxTest extends EndpointAbstract
     public function shouldGetResponseSuccessfully() : void
     {
         $departureDate = gmdate('Y-m-d H:i:s', strtotime('-4 days'));
-        $calculateAwardMilesWithTaxParameters = (new ValueObject\CalculateAwardMilesWithTaxParameters(
-            'E'
+        $calculateAwardMilesWithTaxParameters = (new CalculateAwardMilesWithTaxParameters(
+            CalculateAwardMilesWithTaxParameters::AWARD_TYPE_ECONOMY
         ))->withOneWay()
             ->withSeatGuaranteed()
             ->withDepartureOrigin('IST')

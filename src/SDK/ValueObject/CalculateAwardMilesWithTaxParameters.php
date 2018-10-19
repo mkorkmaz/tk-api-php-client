@@ -7,6 +7,10 @@ use TK\SDK\Exception\InvalidArgumentException;
 
 class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
 {
+    public const AWARD_TYPE_ECONOMY = 'E';
+    public const AWARD_TYPE_BUSINESS= 'B';
+    public const AWARD_TYPE_FIRST_CLASS = 'C';
+
     private $awardType;
     private $wantMoreMiles;
     private $isOneWay = 'F';
@@ -23,6 +27,13 @@ class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
 
     public function __construct(string $awardType)
     {
+        if (! \in_array($awardType, self::$awardTypeEnum, true)) {
+            throw new InvalidArgumentException(
+                'Invalid awardType value. Possible values are "' .
+                implode(', ', self::$awardTypeEnum) . '"' .
+                ' but provided value is "'. $awardType .'"'
+            );
+        }
         $this->awardType = $awardType;
     }
 
