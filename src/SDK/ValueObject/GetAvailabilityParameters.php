@@ -35,7 +35,7 @@ final class GetAvailabilityParameters implements ValueObjectInterface
             throw new InvalidArgumentException(
                 'Invalid Trip Type. Possible values are "' .
                 implode(', ', self::$routingTypeEnum) . '"' .
-                ' but provided value is "' . $routingType .'"'
+                ' but provided value is "' . $routingType . '"'
             );
         }
         $this->queryParameters['RoutingType'] = $routingType;

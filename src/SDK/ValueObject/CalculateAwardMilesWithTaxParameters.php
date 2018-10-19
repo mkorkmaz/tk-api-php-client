@@ -31,7 +31,7 @@ class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
             throw new InvalidArgumentException(
                 'Invalid awardType value. Possible values are "' .
                 implode(', ', self::$awardTypeEnum) . '"' .
-                ' but provided value is "' . $awardType .'"'
+                ' but provided value is "' . $awardType . '"'
             );
         }
         $this->awardType = $awardType;

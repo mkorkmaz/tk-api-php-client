@@ -86,7 +86,7 @@ final class Client
     private function getEndpoint(string $name, array $arguments) : EndpointInterface
     {
         $namespace = '\\TK\\SDK\\Endpoint';
-        $endpointClass =  $namespace . '\\' . \ucfirst($name);
+        $endpointClass = $namespace . '\\' . \ucfirst($name);
         if (!\in_array($name, self::$validEndpoints, true) || !class_exists($endpointClass)) {
             $message = sprintf('%s (%s) is not valid TK API endpoint.', $name, $endpointClass);
             throw new BadMethodCallException($message);
