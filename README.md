@@ -34,7 +34,7 @@ $client = ClientBuilder::create()
 
 ### Endpoints
 
-[See list of endpoints](docs/endpoints/index.md)
+[See the list of endpoints](docs/endpoints/index.md)
 ### Disclaimer
 
 This SDK is not officially recognized by Turkish Airlines. 
