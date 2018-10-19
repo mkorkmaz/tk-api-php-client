@@ -22,32 +22,33 @@ use DateTimeImmutable;
 use TK\SDK\ValueObject\Location;
 use TK\SDK\ValueObject\DepartureDateTime;
 use TK\SDK\ValueObject\OriginDestinationInformation;
-use TK\SDK\ValueObject\AirScheduleRQ;
-use TK\SDK\ValueObject\GetTimetableParameters;
+use TK\SDK\ValueObject\PassengerTypeQuantity;
+use TK\SDK\ValueObject\GetAvailabilityParameters;
 
-$originLocation = new ValueObject\Location('IST', true);
-$destinationLocation  = new ValueObject\Location('ESB', true);
 
 $departureTime = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
-$departureDateTime = (new ValueObject\DepartureDateTime(
+$departureDateTime = (new DepartureDateTime(
 	new DateTimeImmutable($departureTime),
 	'P3D',
 	'P3D'
 ))->withDateFormat('dM');
 
-$originDestinationInformation = (new ValueObject\OriginDestinationInformation(
+$originLocation = new Location('IST', Location::MILTIPLE_AIRPORT_TRUE);
+$destinationLocation  = new Location('ESB', Location::MILTIPLE_AIRPORT_TRUE);
+
+$originDestinationInformation = (new OriginDestinationInformation(
 	$departureDateTime,
 	$originLocation,
 	$destinationLocation
-))->withCabinPreferences(ValueObject\OriginDestinationInformation::CABIN_PREFERENCE_ECONOMY);
+))->withCabinPreferences(OriginDestinationInformation::CABIN_PREFERENCE_ECONOMY);
 
-$passengerTypeQuantity = (new ValueObject\PassengerTypeQuantity())
-	->withQuantity(ValueObject\PassengerTypeQuantity::PASSENGER_TYPE_ADULT, 1)
-	->withQuantity(ValueObject\PassengerTypeQuantity::PASSENGER_TYPE_CHILD, 2);
+$passengerTypeQuantity = (new PassengerTypeQuantity())
+	->withQuantity(PassengerTypeQuantity::PASSENGER_TYPE_ADULT, 1)
+	->withQuantity(PassengerTypeQuantity::PASSENGER_TYPE_CHILD, 2);
 	
-$getAvailabilityParameters = new ValueObject\GetAvailabilityParameters(
-	ValueObject\GetAvailabilityParameters::REDUCED_DATA_INDICATOR_FALSE,
-	ValueObject\GetAvailabilityParameters::ROUTING_TYPE_ONE_WAY,
+$getAvailabilityParameters = new GetAvailabilityParameters(
+	GetAvailabilityParameters::REDUCED_DATA_INDICATOR_FALSE,
+	GetAvailabilityParameters::ROUTING_TYPE_ONE_WAY,
 	$passengerTypeQuantity
 );
 
