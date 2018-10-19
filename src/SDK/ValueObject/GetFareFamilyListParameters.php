@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace TK\SDK\ValueObject;
 
+use TK\SDK\Exception\InvalidArgumentException;
+
 class GetFareFamilyListParameters implements ValueObjectInterface
 {
     private $portList;

@@ -11,32 +11,28 @@ namespace TK\SDK\Helper;
  */
 class DurationConverter
 {
-    const FORMAT_LONG = 'l';
-    const FORMAT_SHORT = 's';
+    public const FORMAT_LONG = 'l';
+    public const FORMAT_SHORT = 's';
 
     public static function getDateTimeParts(string $duration, $format) : array
     {
         if ($format === 'l') {
             preg_match('/^P(.*?)Y(.*?)M(.*?)DT(.*?)H(.*?)M(.*?)S$/', $duration, $matches);
-            [$ignore, $year, $month, $day, $hour, $minute, $second] = array_map(function ($item) {
+            [, $year, $month, $day, $hour, $minute, $second] = array_map(function ($item) {
                 return (float) $item;
             }, $matches);
+            return [$year, $month, $day, $hour, $minute, $second];
         }
-
-        if ($format === 's') {
-            preg_match('/^P(.*?)DT(.*?)H(.*?)M(.*?)S$/', $duration, $matches);
-            [$ignore, $day, $hour, $minute, $second] = array_map(function ($item) {
-                return (float) $item;
-            }, $matches);
-            $year = 0;
-            $month = 0;
-        }
-        return [$year, $month, $day, $hour, $minute, $second];
+        preg_match('/^P(.*?)DT(.*?)H(.*?)M(.*?)S$/', $duration, $matches);
+        [, $day, $hour, $minute, $second] = array_map(function ($item) {
+            return (float) $item;
+        }, $matches);
+        return [0, 0, $day, $hour, $minute, $second];
     }
 
     public static function toSeconds(string $duration, ?string $format = 'l') : float
     {
-        list($year, $month, $day, $hour, $minute, $second) = self::getDateTimeParts($duration, $format);
+        [$year, $month, $day, $hour, $minute, $second] = self::getDateTimeParts($duration, $format);
         $seconds = $year * 365 * 24 * 60 * 60
             + $month * 30 * 24 * 60 * 60
             + $day * 24 * 60 * 60
@@ -51,6 +47,7 @@ class DurationConverter
     {
         return self::toSeconds($duration, $format) / 60;
     }
+
     public static function toHour(string $duration, ?string $format = 'l') : float
     {
         return self::toMinute($duration, $format) / 60;

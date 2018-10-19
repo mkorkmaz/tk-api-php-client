@@ -7,11 +7,11 @@ use TK\SDK\Exception\InvalidArgumentException;
 
 final class GetAvailabilityParameters implements ValueObjectInterface
 {
-
     public const ROUTING_TYPE_ROUND_TRIP = 'r';
     public const ROUTING_TYPE_ONE_WAY = 'o';
     public const REDUCED_DATA_INDICATOR_TRUE  = true;
     public const REDUCED_DATA_INDICATOR_FALSE  = false;
+
     private static $routingTypeEnum = ['o', 'r'];
 
     private $queryParameters = [

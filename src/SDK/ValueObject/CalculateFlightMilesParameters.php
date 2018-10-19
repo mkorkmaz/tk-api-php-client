@@ -3,22 +3,25 @@ declare(strict_types=1);
 
 namespace TK\SDK\ValueObject;
 
+use DateTimeImmutable;
 use TK\SDK\Exception\InvalidArgumentException;
 
 class CalculateFlightMilesParameters implements ValueObjectInterface
 {
+    private static $cardTypesEnum = ['CC', 'CP', 'EC', 'EP'];
+
     private $origin;
     private $destination;
     private $cabinCode;
     private $classCode;
     private $marketingClassCode;
     private $cardType;
+    /**
+     * @var $date DateTimeImmutable
+     */
     private $flightDate;
     private $operatingFlightNumber;
     private $marketingFlightNumber;
-
-    private static $cardTypesEnum = ['CC', 'CP', 'EC', 'EP'];
-
 
     public function __construct(string $origin, string $destination)
     {
@@ -71,7 +74,7 @@ class CalculateFlightMilesParameters implements ValueObjectInterface
         return $this;
     }
 
-    public function withFlightDate(\DateTimeImmutable $flightDate) : CalculateFlightMilesParameters
+    public function withFlightDate(DateTimeImmutable $flightDate) : CalculateFlightMilesParameters
     {
         $this->flightDate = $flightDate;
         return $this;
@@ -82,7 +85,6 @@ class CalculateFlightMilesParameters implements ValueObjectInterface
         $this->operatingFlightNumber = $operatingFlightNumber;
         return $this;
     }
-
 
     public function withMarketingFlightNumber(string $marketingFlightNumber) : CalculateFlightMilesParameters
     {

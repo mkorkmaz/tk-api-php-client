@@ -8,7 +8,7 @@ use TK\SDK\Exception\InvalidArgumentException;
 final class GetPortListParameters implements ValueObjectInterface
 {
     public const AIRLINE_CODE_TURKISH_AIRLINES = 'TK';
-    public const AIRLINE_CODE_ANADOLUJET =  'AJ';
+    public const AIRLINE_CODE_ANADOLUJET = 'AJ';
     public const LANGUAGE_CODE_TR = 'TR';
     public const LANGUAGE_CODE_EN = 'EN';
     public const LANGUAGE_CODE_DE = 'DE';
@@ -26,7 +26,7 @@ final class GetPortListParameters implements ValueObjectInterface
 
     private function setAirlineCode(?string $airlineCode) : void
     {
-        if (! \in_array($airlineCode, self::$airlineCodeEnum, true)) {
+        if (!\in_array($airlineCode, self::$airlineCodeEnum, true)) {
             throw new InvalidArgumentException(
                 'Invalid AirlineCode provided. Must be one of these: "TK", "AJ"'
             );
@@ -36,7 +36,7 @@ final class GetPortListParameters implements ValueObjectInterface
 
     private function setLanguageCode(?string $languageCode) : void
     {
-        if (! \in_array($languageCode, self::$languageCodeEnum, true)) {
+        if (!\in_array($languageCode, self::$languageCodeEnum, true)) {
             throw new InvalidArgumentException(
                 'Invalid LanguageCode provided. Must be one of these: "TR", "EN", "DE"'
             );

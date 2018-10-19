@@ -14,7 +14,7 @@ final class GetTimetableParameters implements ValueObjectInterface
     public const SCHEDULE_TYPE_MONTHLY = 'M';
     public const SCHEDULE_TYPE_DAILY = 'D';
 
-    private static $tripTypeEnum = ['O','R'];
+    private static $tripTypeEnum = ['O', 'R'];
     private static $scheduleTypeEnum = ['D', 'M', 'W'];
 
     private $queryParameters;
@@ -29,16 +29,6 @@ final class GetTimetableParameters implements ValueObjectInterface
         $this->setTripType($tripType);
     }
 
-    public static function createFromArray(array $parameters) : GetTimetableParameters
-    {
-        return new GetTimetableParameters();
-    }
-
-    public static function createFromJson(string $json) : GetTimetableParameters
-    {
-        return self::createFromArray(json_decode($json, (bool) JSON_OBJECT_AS_ARRAY));
-    }
-
     public function withReturnDate(?DateTimeImmutable $returnDate) : GetTimetableParameters
     {
         $this->setReturnDate($returnDate);
@@ -47,11 +37,11 @@ final class GetTimetableParameters implements ValueObjectInterface
 
     private function setTripType(string $tripType) : void
     {
-        if (! \in_array($tripType, self::$tripTypeEnum, true)) {
+        if (!\in_array($tripType, self::$tripTypeEnum, true)) {
             throw new InvalidArgumentException(
                 'Invalid Trip Type. Possible values are "' .
                 implode(', ', self::$tripTypeEnum) . '"' .
-                ' but provided value is "'. $tripType .'"'
+                ' but provided value is "' . $tripType . '"'
             );
         }
         $this->queryParameters['tripType'] = $tripType;
@@ -60,17 +50,17 @@ final class GetTimetableParameters implements ValueObjectInterface
     private function setReturnDate(?DateTimeImmutable $returnDate) : void
     {
         if ($returnDate !== null) {
-            $this->queryParameters['returnDate'] =  $returnDate->format('Y-m-d');
+            $this->queryParameters['returnDate'] = $returnDate->format('Y-m-d');
         }
     }
 
     private function setScheduleType(string $scheduleType) : void
     {
-        if (! \in_array($scheduleType, self::$scheduleTypeEnum, true)) {
+        if (!\in_array($scheduleType, self::$scheduleTypeEnum, true)) {
             throw new InvalidArgumentException(
                 'Invalid Trip Type. Possible values are "' .
                 implode(', ', self::$scheduleTypeEnum) . '"' .
-                ' but provided value is "'. $scheduleType .'"'
+                ' but provided value is "' . $scheduleType . '"'
             );
         }
         $this->queryParameters['scheduleType'] = $scheduleType;

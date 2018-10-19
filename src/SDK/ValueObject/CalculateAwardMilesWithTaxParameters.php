@@ -3,31 +3,37 @@ declare(strict_types=1);
 
 namespace TK\SDK\ValueObject;
 
+use DateTimeImmutable;
 use TK\SDK\Exception\InvalidArgumentException;
 
 class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
 {
     public const AWARD_TYPE_ECONOMY = 'E';
-    public const AWARD_TYPE_BUSINESS= 'B';
+    public const AWARD_TYPE_BUSINESS = 'B';
     public const AWARD_TYPE_FIRST_CLASS = 'C';
+
+    private static $awardTypeEnum = ['E', 'B', 'C'];
 
     private $awardType;
     private $wantMoreMiles;
     private $isOneWay = 'F';
     private $departureOrigin;
     private $departureDestination;
+    /**
+     * @var $date DateTimeImmutable
+     */
     private $departureDate;
     private $arrivalOrigin;
-    private $arrivalDestinaton;
+    private $arrivalDestination;
+    /**
+     * @var $date DateTimeImmutable
+     */
     private $arrivalDate;
     private $ptcType;
 
-    private static $awardTypeEnum = ['E', 'B', 'C'];
-
-
     public function __construct(string $awardType)
     {
-        if (! \in_array($awardType, self::$awardTypeEnum, true)) {
+        if (!\in_array($awardType, self::$awardTypeEnum, true)) {
             throw new InvalidArgumentException(
                 'Invalid awardType value. Possible values are "' .
                 implode(', ', self::$awardTypeEnum) . '"' .
@@ -69,7 +75,7 @@ class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
 
     public function withArrivalDestination(string $iataCode) : CalculateAwardMilesWithTaxParameters
     {
-        $this->arrivalDestinaton = $this->getIataCode($iataCode);
+        $this->arrivalDestination = $this->getIataCode($iataCode);
         return $this;
     }
 
@@ -93,7 +99,7 @@ class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
 
     private function getIataCode(string $iataCode) : string
     {
-        if (! preg_match('/[A-Z]{3}/', $iataCode)) {
+        if (!preg_match('/[A-Z]{3}/', $iataCode)) {
             {
                 throw new InvalidArgumentException(
                     sprintf(
@@ -131,8 +137,8 @@ class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
         if ($this->arrivalOrigin !== null) {
             $calculateAwardMilesWithTaxParameters['arrivalOrigin'] = $this->arrivalOrigin;
         }
-        if ($this->arrivalDestinaton !== null) {
-            $calculateAwardMilesWithTaxParameters['arrivalDestination'] = $this->arrivalDestinaton;
+        if ($this->arrivalDestination !== null) {
+            $calculateAwardMilesWithTaxParameters['arrivalDestination'] = $this->arrivalDestination;
         }
         if ($this->arrivalDate !== null) {
             $calculateAwardMilesWithTaxParameters['arrivalDateDay'] = (int) $this->arrivalDate->format('j');

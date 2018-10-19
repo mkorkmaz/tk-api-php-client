@@ -8,7 +8,7 @@ use TK\SDK\Exception\InvalidArgumentException;
 final class PassengerTypeQuantity implements ValueObjectInterface
 {
     public const PASSENGER_TYPE_ADULT = 'adult';
-    public const PASSENGER_TYPE_CHILD= 'child';
+    public const PASSENGER_TYPE_CHILD = 'child';
     public const PASSENGER_TYPE_INFANT = 'infant';
 
     private static $passengerTypeEnum = ['adult', 'child', 'infant'];
@@ -32,7 +32,7 @@ final class PassengerTypeQuantity implements ValueObjectInterface
 
     private function checkPassengerType(string $checkPassengerType) : void
     {
-        if (! \in_array($checkPassengerType, self::$passengerTypeEnum, true)) {
+        if (!\in_array($checkPassengerType, self::$passengerTypeEnum, true)) {
             throw new InvalidArgumentException(
                 'Invalid PassengerTypeQuantity.Code value provided. Must be one of these: ' .
                 implode(', ', self::$passengerTypeEnum)

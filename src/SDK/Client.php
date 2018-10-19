@@ -87,7 +87,7 @@ final class Client
     {
         $namespace = '\\TK\\SDK\\Endpoint';
         $endpointClass =  $namespace . '\\'. \ucfirst($name);
-        if (! \in_array($name, self::$validEndpoints, true) || ! class_exists($endpointClass)) {
+        if (!\in_array($name, self::$validEndpoints, true) || ! class_exists($endpointClass)) {
             $message = sprintf('%s (%s) is not valid TK API endpoint.', $name, $endpointClass);
             throw new BadMethodCallException($message);
         }
@@ -122,8 +122,8 @@ final class Client
         if ($responseBody['status'] === 'FAILURE') {
             throw new RequestException(
                 'API ERROR: ' .
-                $responseBody['message']['code']. ' - ' .
-                $responseBody['message']['description'] . ' OriginalResponse: '. $responseBodyString
+                $responseBody['message']['code'] . ' - ' .
+                $responseBody['message']['description'] . ' OriginalResponse: ' . $responseBodyString
             );
         }
         return [

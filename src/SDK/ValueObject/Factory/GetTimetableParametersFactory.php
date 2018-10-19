@@ -12,7 +12,6 @@ use TK\SDK\ValueObject\GetTimetableParameters;
 
 final class GetTimetableParametersFactory implements ValueObjectFactoryInterface
 {
-
     /**
      * @param array $parameters
      * @return GetTimetableParameters
@@ -45,7 +44,7 @@ final class GetTimetableParametersFactory implements ValueObjectFactoryInterface
             $airScheduleRQ = $airScheduleRQ->withAirlineCode($parameters['OTA_AirScheduleRQ']['AirlineCode']);
         }
         if (array_key_exists('FlightTypePref', $parameters['OTA_AirScheduleRQ']) &&
-            $parameters['OTA_AirScheduleRQ']['FlightTypePref']['DirectAndNonStopOnlyInd'] === true ) {
+            $parameters['OTA_AirScheduleRQ']['FlightTypePref']['DirectAndNonStopOnlyInd'] === true) {
             $airScheduleRQ = $airScheduleRQ->withDirectAndNonStopOnlyInd();
         }
         $getTimetableParameters =  new GetTimetableParameters(
@@ -55,7 +54,7 @@ final class GetTimetableParametersFactory implements ValueObjectFactoryInterface
         );
         if (array_key_exists('returnDate', $parameters)) {
             $returnDate = new DateTimeImmutable($parameters['returnDate']);
-            $getTimetableParameters =  $getTimetableParameters->withReturnDate($returnDate);
+            $getTimetableParameters = $getTimetableParameters->withReturnDate($returnDate);
         }
         return $getTimetableParameters;
     }

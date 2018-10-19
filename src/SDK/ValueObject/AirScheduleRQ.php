@@ -7,8 +7,7 @@ use TK\SDK\Exception\InvalidArgumentException;
 
 final class AirScheduleRQ implements ValueObjectInterface
 {
-
-    public const AIRLINE_TURKISH_AIRLINES =  'TK';
+    public const AIRLINE_TURKISH_AIRLINES = 'TK';
     public const AIRLINE_ANADOLUJET = 'AJ';
 
     private static $airlineCodeEnum = ['TK', 'AJ'];
@@ -37,7 +36,7 @@ final class AirScheduleRQ implements ValueObjectInterface
 
     private function setAirlineCode(?string $airlineCode) : void
     {
-        if (! \in_array($airlineCode, self::$airlineCodeEnum, true)) {
+        if (!\in_array($airlineCode, self::$airlineCodeEnum, true)) {
             throw new InvalidArgumentException(
                 'Invalid AirlineCode provided. Must be one of these: "TK", "AJ"'
             );

@@ -7,8 +7,8 @@ use TK\SDK\Exception\InvalidArgumentException;
 
 final class Location implements ValueObjectInterface
 {
-    public const MILTIPLE_AIRPORT_TRUE = true;
-    public const MILTIPLE_AIRPORT_FALSE = false;
+    public const MULTIPLE_AIRPORT_TRUE = true;
+    public const MULTIPLE_AIRPORT_FALSE = false;
 
     private $locationCode;
     private $multiAirportCityInd;

@@ -31,7 +31,7 @@ final class DepartureDateTime implements ValueObjectInterface
 
     private function setWindowBefore(string $windowBefore) : void
     {
-        if (! preg_match('/^P[0-3]{1}D$/', $windowBefore)) {
+        if (!preg_match('/^P[0-3]{1}D$/', $windowBefore)) {
             throw new InvalidArgumentException(
                 'Invalid DepartureDateTime.WindowBefore value provided. Format should be like this P{int:[0,1,2,3]}D'
             );
@@ -41,7 +41,7 @@ final class DepartureDateTime implements ValueObjectInterface
 
     private function setWindowAfter(string $windowAfter) : void
     {
-        if (! preg_match('/^P[0-3]{1}D$/', $windowAfter)) {
+        if (!preg_match('/^P[0-3]{1}D$/', $windowAfter)) {
             throw new InvalidArgumentException(
                 'Invalid DepartureDateTime.WindowAfter value provided. Format should be like this P{int:[0,1,2,3]}D'
             );
