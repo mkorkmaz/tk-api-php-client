@@ -1,7 +1,10 @@
 # Codeception Test Suite Configuration
 #
 # Suite for unit or integration tests.
-
+coverage:
+    enabled: true
+    include:
+        - src/SDK/*
 actor: UnitTester
 modules:
     enabled:
