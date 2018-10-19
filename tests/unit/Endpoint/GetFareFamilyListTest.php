@@ -14,7 +14,7 @@ class GetFareFamilyListTest extends EndpointAbstract
     public function shouldGetResponseSuccessfully() : void
     {
         $getFareFamilyListParameters = (new ValueObject\GetFareFamilyListParameters())
-            ->withPortIataCode('IST')
+            ->withAirportIataCode('IST')
             ->withMilesRequest();
 
         $response = $this->client->getFareFamilyList($getFareFamilyListParameters);

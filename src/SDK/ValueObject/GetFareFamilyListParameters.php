@@ -12,7 +12,8 @@ class GetFareFamilyListParameters implements ValueObjectInterface
     {
         $this->portList = [];
     }
-    public function withPortIataCode(string $portIataCode) : GetFareFamilyListParameters
+
+    public function withAirportIataCode(string $portIataCode) : GetFareFamilyListParameters
     {
         $this->checkPortIataCode($portIataCode);
         $this->portList[] = $portIataCode;
