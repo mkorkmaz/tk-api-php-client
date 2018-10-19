@@ -18,7 +18,7 @@ use TK\SDK\Exception\InvalidArgumentException;
 use TK\SDK\Exception\BadMethodCallException;
 use TK\SDK\Exception\RequestException;
 use TypeError;
-use Exception;
+use GuzzleHttp\Exception\RequestException as GuzzleRequestException;
 
 final class Client
 {
@@ -105,9 +105,8 @@ final class Client
      */
     private function endpointFactory(string $endpointClass, array $arguments) : EndpointInterface
     {
-        $endpointObject = new $endpointClass($arguments[0]);
         try {
-            return $endpointObject;
+            return new $endpointClass($arguments[0]);
         } catch (TypeError $e) {
             $message = 'This endpoint needs arguments, no argument provided.';
             throw new InvalidArgumentException($message);
@@ -159,7 +158,7 @@ final class Client
         $options['headers'] = $this->headers;
         try {
             return $this->guzzleClient->{$httpRequestMethod}($uri, $options);
-        } catch (Exception $e) {
+        } catch (GuzzleRequestException $e) {
             $exceptionMessage = (string) $e->getResponse()->getBody()->getContents();
             $message = sprintf('TK API Request Error: %s', $exceptionMessage);
             throw new RequestException($message);
