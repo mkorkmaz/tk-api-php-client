@@ -21,7 +21,7 @@ final class GetAvailabilityParametersFactory implements ValueObjectFactoryInterf
     public static function createFromArray(array $parameters) : GetAvailabilityParameters
     {
         $originDestinationInformations = [];
-        foreach ($parameters['OriginDestinationInformation']  as $originDestinationInformation) {
+        foreach ($parameters['OriginDestinationInformation'] as $originDestinationInformation) {
             $originLocation = new Location(
                 $originDestinationInformation['OriginLocation']['LocationCode'],
                 $originDestinationInformation['OriginLocation']['MultiAirportCityInd']

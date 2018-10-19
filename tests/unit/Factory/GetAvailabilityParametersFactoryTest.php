@@ -5,6 +5,7 @@ namespace TK\Test\Unit\Factory;
 
 use TK\SDK\ValueObject\Factory\GetAvailabilityParametersFactory;
 use TK\SDK\ValueObject\GetAvailabilityParameters;
+
 class GetAvailabilityParametersFactoryTest extends \Codeception\Test\Unit
 {
     /**

@@ -30,7 +30,7 @@ final class GetTimetableParametersFactory implements ValueObjectFactoryInterface
             $originDestinationInformation['DestinationLocation']['MultiAirportCityInd']
         );
         $departureDateTime = new DepartureDateTime(
-            DateTimeImmutable::createFromFormat('Y-m-d',  $originDestinationInformation['DepartureDateTime']['Date']),
+            DateTimeImmutable::createFromFormat('Y-m-d', $originDestinationInformation['DepartureDateTime']['Date']),
             'P3D',
             'P3D'
         );

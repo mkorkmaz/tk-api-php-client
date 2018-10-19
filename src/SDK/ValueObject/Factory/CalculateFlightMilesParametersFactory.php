@@ -36,7 +36,7 @@ class CalculateFlightMilesParametersFactory implements ValueObjectFactoryInterfa
         }
         if (array_key_exists('flightDate', $parameters)) {
             $calculateFlightMilesParameters = $calculateFlightMilesParameters
-                ->withFlightDate(DateTimeImmutable::createFromFormat('d.m.Y',$parameters['flightDate']));
+                ->withFlightDate(DateTimeImmutable::createFromFormat('d.m.Y', $parameters['flightDate']));
         }
         if (array_key_exists('operatingFlightNumber', $parameters)) {
             $calculateFlightMilesParameters = $calculateFlightMilesParameters
