@@ -6,7 +6,7 @@
 
 - [Get Timetable](GetTimetable.md)
 
- This method retrieves schedule info. It lists all flights in requested route and operation days in a week.
+	This method retrieves schedule info. It lists all flights in requested route and operation days in a week.
  
 
 - [Get Port List](GetPortList.md)

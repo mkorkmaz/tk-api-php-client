@@ -10,7 +10,6 @@ See [the API documentation page](https://developer.turkishairlines.com/documenta
 
 ## Endpoint Method
 ```php
-
 $client->getTimetable($getTimetableParametersObject);
 
 ```
@@ -64,7 +63,7 @@ $response = $client->getTimetable($getTimetableParametersObject);
 
 use TK\SDK\ValueObject\Factory\GetTimetableParametersFactory;
 
-$jsonQuery =<<<HEREDOC
+$jsonQuery =<<<JSON
 {
   "OTA_AirScheduleRQ":{
     "OriginDestinationInformation":{
@@ -91,7 +90,7 @@ $jsonQuery =<<<HEREDOC
   "scheduleType":"W",
   "tripType":"R"
 }
-HEREDOC;
+JSON;
 
 $getTimetableParametersObject = GetTimetableParametersFactory::createFromJson($jsonQuery);
 

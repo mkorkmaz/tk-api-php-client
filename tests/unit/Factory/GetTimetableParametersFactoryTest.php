@@ -25,7 +25,7 @@ class GetTimetableParametersFactoryTest extends \Codeception\Test\Unit
      */
     public function shouldReturnGetTimetableParameters() : void
     {
-        $json =<<<HEREDOC
+        $json =<<<JSON
 {
   "OTA_AirScheduleRQ":{
     "OriginDestinationInformation":{
@@ -52,7 +52,7 @@ class GetTimetableParametersFactoryTest extends \Codeception\Test\Unit
   "scheduleType":"W",
   "tripType":"R"
 }
-HEREDOC;
+JSON;
         $parameterObject = GetTimetableParametersFactory::createFromJson($json);
         $this->assertInstanceOf(GetTimetableParameters::class, $parameterObject);
         $this->assertEquals(json_decode($json, true), $parameterObject->getValue());
