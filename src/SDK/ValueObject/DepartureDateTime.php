@@ -8,9 +8,6 @@ use TK\SDK\Exception\InvalidArgumentException;
 
 final class DepartureDateTime implements ValueObjectInterface
 {
-    /**
-     * @var $date DateTimeImmutable
-     */
     private $date;
     private $windowAfter;
     private $windowBefore;

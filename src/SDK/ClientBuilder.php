@@ -8,7 +8,7 @@ use Psr\Log\LoggerInterface;
 use Monolog\Logger;
 use Monolog\Handler\ErrorLogHandler;
 use GuzzleHttp;
-use Exception\InvalidArgumentException;
+use TK\SDK\Exception\InvalidArgumentException;
 
 final class ClientBuilder
 {

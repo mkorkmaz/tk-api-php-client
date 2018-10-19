@@ -17,7 +17,7 @@ class CalculateFlightMilesParameters implements ValueObjectInterface
     private $marketingClassCode;
     private $cardType;
     /**
-     * @var $date DateTimeImmutable
+     * @var $flightDate DateTimeImmutable
      */
     private $flightDate;
     private $operatingFlightNumber;

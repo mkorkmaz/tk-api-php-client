@@ -20,13 +20,13 @@ class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
     private $departureOrigin;
     private $departureDestination;
     /**
-     * @var $date DateTimeImmutable
+     * @var $departureDate DateTimeImmutable
      */
     private $departureDate;
     private $arrivalOrigin;
     private $arrivalDestination;
     /**
-     * @var $date DateTimeImmutable
+     * @var $arrivalDate DateTimeImmutable
      */
     private $arrivalDate;
     private $ptcType;
