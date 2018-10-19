@@ -17,7 +17,8 @@ class CalculateFlightMilesParametersFactory implements ValueObjectFactoryInterfa
     public static function createFromArray(array $parameters) : CalculateFlightMilesParameters
     {
         $calculateFlightMilesParameters = new CalculateFlightMilesParameters(
-            $parameters['origin'], $parameters['destination']
+            $parameters['origin'],
+            $parameters['destination']
         );
         if (array_key_exists('cabin_code', $parameters) && $parameters['cabin_code'] === 'Y') {
             $calculateFlightMilesParameters = $calculateFlightMilesParameters->withCabinCode();
