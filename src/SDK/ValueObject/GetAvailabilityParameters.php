@@ -9,8 +9,8 @@ final class GetAvailabilityParameters implements ValueObjectInterface
 {
     public const ROUTING_TYPE_ROUND_TRIP = 'r';
     public const ROUTING_TYPE_ONE_WAY = 'o';
-    public const REDUCED_DATA_INDICATOR_TRUE  = true;
-    public const REDUCED_DATA_INDICATOR_FALSE  = false;
+    public const REDUCED_DATA_INDICATOR_TRUE = true;
+    public const REDUCED_DATA_INDICATOR_FALSE = false;
 
     private static $routingTypeEnum = ['o', 'r'];
 
@@ -31,11 +31,11 @@ final class GetAvailabilityParameters implements ValueObjectInterface
 
     private function setRoutingType(string $routingType) : void
     {
-        if (! \in_array($routingType, self::$routingTypeEnum, true)) {
+        if (!\in_array($routingType, self::$routingTypeEnum, true)) {
             throw new InvalidArgumentException(
                 'Invalid Trip Type. Possible values are "' .
                 implode(', ', self::$routingTypeEnum) . '"' .
-                ' but provided value is "'. $routingType .'"'
+                ' but provided value is "' . $routingType .'"'
             );
         }
         $this->queryParameters['RoutingType'] = $routingType;

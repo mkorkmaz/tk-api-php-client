@@ -47,7 +47,7 @@ final class GetTimetableParametersFactory implements ValueObjectFactoryInterface
             $parameters['OTA_AirScheduleRQ']['FlightTypePref']['DirectAndNonStopOnlyInd'] === true) {
             $airScheduleRQ = $airScheduleRQ->withDirectAndNonStopOnlyInd();
         }
-        $getTimetableParameters =  new GetTimetableParameters(
+        $getTimetableParameters = new GetTimetableParameters(
             $airScheduleRQ,
             $parameters['scheduleType'],
             $parameters['tripType']

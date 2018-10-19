@@ -21,7 +21,7 @@ final class Location implements ValueObjectInterface
 
     private function setLocationCode(string $locationCode) : void
     {
-        if (! preg_match('/[A-Z]{3}/', $locationCode)) {
+        if (!preg_match('/[A-Z]{3}/', $locationCode)) {
             {
                 throw new InvalidArgumentException(
                     'Invalid OriginLocation.LocationCode value provided. Valid IATA code must be used'

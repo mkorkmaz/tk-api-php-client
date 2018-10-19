@@ -16,9 +16,6 @@ class CalculateFlightMilesParameters implements ValueObjectInterface
     private $classCode;
     private $marketingClassCode;
     private $cardType;
-    /**
-     * @var $flightDate DateTimeImmutable
-     */
     private $flightDate;
     private $operatingFlightNumber;
     private $marketingFlightNumber;
@@ -31,7 +28,7 @@ class CalculateFlightMilesParameters implements ValueObjectInterface
 
     private function getIataCode(string $iataCode) : string
     {
-        if (! preg_match('/[A-Z]{3}/', $iataCode)) {
+        if (!preg_match('/[A-Z]{3}/', $iataCode)) {
             {
                 throw new InvalidArgumentException(
                     sprintf(
@@ -64,7 +61,7 @@ class CalculateFlightMilesParameters implements ValueObjectInterface
 
     public function withCardType(string $cardType) : CalculateFlightMilesParameters
     {
-        if (! \in_array($cardType, self::$cardTypesEnum, true)) {
+        if (!\in_array($cardType, self::$cardTypesEnum, true)) {
             throw new InvalidArgumentException(
                 'Invalid card_type value provided. Possile values are: ' .
                 implode(', ', self::$cardTypesEnum)

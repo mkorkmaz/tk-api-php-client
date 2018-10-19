@@ -35,7 +35,7 @@ final class OriginDestinationInformation implements ValueObjectInterface
                 implode(', ', self::$cabinPreferencesEnum)
             );
         }
-        $this->cabinPreferences[]=$cabinPreference;
+        $this->cabinPreferences[] = $cabinPreference;
         return $this;
     }
 
@@ -47,9 +47,9 @@ final class OriginDestinationInformation implements ValueObjectInterface
             'DestinationLocation' => $this->destinationLocation->getValue()
         ];
         if (\count($this->cabinPreferences) !== 0) {
-            $originDestinationInformationValue['CabinPreferences']  = [];
+            $originDestinationInformationValue['CabinPreferences'] = [];
             foreach ($this->cabinPreferences as $cabinPreference) {
-                $originDestinationInformationValue['CabinPreferences'][]= ['Cabin' => $cabinPreference];
+                $originDestinationInformationValue['CabinPreferences'][] = ['Cabin' => $cabinPreference];
             }
         }
         return $originDestinationInformationValue;

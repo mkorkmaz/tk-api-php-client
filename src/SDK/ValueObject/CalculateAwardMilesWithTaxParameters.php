@@ -19,15 +19,9 @@ class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
     private $isOneWay = 'F';
     private $departureOrigin;
     private $departureDestination;
-    /**
-     * @var $departureDate DateTimeImmutable
-     */
     private $departureDate;
     private $arrivalOrigin;
     private $arrivalDestination;
-    /**
-     * @var $arrivalDate DateTimeImmutable
-     */
     private $arrivalDate;
     private $ptcType;
 
@@ -37,7 +31,7 @@ class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
             throw new InvalidArgumentException(
                 'Invalid awardType value. Possible values are "' .
                 implode(', ', self::$awardTypeEnum) . '"' .
-                ' but provided value is "'. $awardType .'"'
+                ' but provided value is "' . $awardType .'"'
             );
         }
         $this->awardType = $awardType;

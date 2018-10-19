@@ -24,7 +24,7 @@ class GetFareFamilyListParameters implements ValueObjectInterface
 
     private function checkPortIataCode(string $portIataCode) : void
     {
-        if (! preg_match('/[A-Z]{3}/', $portIataCode)) {
+        if (!preg_match('/[A-Z]{3}/', $portIataCode)) {
             {
                 throw new InvalidArgumentException(
                     'Invalid portList value provided. Valid IATA code must be used.'
