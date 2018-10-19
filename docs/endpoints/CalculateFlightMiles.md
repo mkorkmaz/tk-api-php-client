@@ -9,12 +9,14 @@
 See [the API documentation page](https://developer.turkishairlines.com/documentation/calculate-flight-miles) on Turkish Airlines Developer Portal
 
 ## Endpoint Method
+
 ```php
 $this->client->calculateFlightMiles($calculateFlightMilesParameters);
 
 ```
 
 ### Example with ValueObjects
+
 ```php
 <?php
 
@@ -30,6 +32,6 @@ $calculateFlightMilesParameters = (new CalculateFlightMilesParameters(
 	->withOperatingFlightNumber('TK1000')
 	->withFlightDate(new DateTimeImmutable($flightDate));
 
-$respon$response = $this->client->calculateFlightMiles($calculateFlightMilesParameters);
+$response = $this->client->calculateFlightMiles($calculateFlightMilesParameters);
 
 ```

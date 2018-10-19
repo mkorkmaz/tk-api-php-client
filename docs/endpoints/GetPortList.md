@@ -9,13 +9,14 @@ Lists all ports in details.
 See [the API documentation page](https://developer.turkishairlines.com/documentation/getPortList) on Turkish Airlines Developer Portal
 
 ## Endpoint Method
+
 ```php
 $client->getPortList($getPortListParametersObject);
 
 ```
 
-
 ### Example with ValueObjects
+
 ```php
 <?php
 
@@ -28,4 +29,3 @@ $getPortListParameters = (new GetPortListParameters(
 $response = $this->client->getPortList($getPortListParameters);
 
 ```
-

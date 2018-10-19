@@ -9,12 +9,14 @@ This method returns the detailed information of the reservations created through
 See [the API documentation page](https://developer.turkishairlines.com/documentation/retrieveReservationDetail) on Turkish Airlines Developer Portal
 
 ## Endpoint Method
+
 ```php
 $this->client->retrieveReservationDetail($retrieveReservationDetailParameters);
 
 ```
 
 ### Example with ValueObjects
+
 ```php
 <?php
 

@@ -55,7 +55,6 @@ class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
         return $this;
     }
 
-
     public function withArrivalOrigin(string $iataCode) : CalculateAwardMilesWithTaxParameters
     {
         $this->arrivalOrigin = $this->getIataCode($iataCode);

@@ -9,13 +9,14 @@ This method retrieves schedule info. It lists all flights in requested route and
 See [the API documentation page](https://developer.turkishairlines.com/documentation/GetTimetable) on Turkish Airlines Developer Portal
 
 ## Endpoint Method
+
 ```php
 $client->getTimetable($getTimetableParametersObject);
 
 ```
 
-
 ### Example with ValueObjects
+
 ```php
 <?php
 
@@ -56,8 +57,8 @@ $response = $client->getTimetable($getTimetableParametersObject);
 
 ```
 
-
 ### Example with Factory Using JSON Query
+
 ```php
 <?php
 
@@ -98,7 +99,6 @@ $response = $client->getTimetable($getTimetableParametersObject);
 
 ```
 
-
 ### Example with Factory Using An Array
 
 You can build an array that is basically json_encode version of the object mentioned in the previous example.
@@ -113,5 +113,3 @@ $getTimetableParametersObject = GetTimetableParametersFactory::createFromArray($
 $response = $client->getTimetable($getTimetableParametersObject);
 
 ```
-
-
