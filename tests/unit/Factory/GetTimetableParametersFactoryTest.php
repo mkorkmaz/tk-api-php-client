@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace TK\Test\Unit\Factory;
 
@@ -22,6 +23,7 @@ class GetTimetableParametersFactoryTest extends \Codeception\Test\Unit
 
     /**
      * @test
+     * @throws \Exception
      */
     public function shouldReturnGetTimetableParameters() : void
     {

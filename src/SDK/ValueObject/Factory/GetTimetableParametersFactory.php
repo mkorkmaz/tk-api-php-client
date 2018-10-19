@@ -9,6 +9,7 @@ use TK\SDK\ValueObject\DepartureDateTime;
 use TK\SDK\ValueObject\OriginDestinationInformation;
 use TK\SDK\ValueObject\AirScheduleRQ;
 use TK\SDK\ValueObject\GetTimetableParameters;
+use TK\SDK\Exception\InvalidArgumentException;
 
 final class GetTimetableParametersFactory implements ValueObjectFactoryInterface
 {
@@ -62,10 +63,17 @@ final class GetTimetableParametersFactory implements ValueObjectFactoryInterface
     /**
      * @param string $json
      * @return GetTimetableParameters
+     * @throws InvalidArgumentException
      * @throws \Exception
      */
     public static function createFromJson(string $json) : GetTimetableParameters
     {
-        return self::createFromArray(json_decode($json, (bool) JSON_OBJECT_AS_ARRAY));
+        $parameters = json_decode($json, (bool) JSON_OBJECT_AS_ARRAY);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            throw new InvalidArgumentException(
+                'GetTimetableParametersFactory Error: ' . json_last_error_msg()
+            );
+        }
+        return self::createFromArray($parameters);
     }
 }
