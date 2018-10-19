@@ -51,7 +51,7 @@ final class Client
     private $logger;
 
     private $headers = [
-        'User-Agent' => 'TK-PHP-SDK/1.0'
+        'User-Agent' => 'mkorkmaz/tk-api-php-sdk 1.0'
     ];
 
     /**
