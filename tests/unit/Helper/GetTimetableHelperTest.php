@@ -22,8 +22,8 @@ class GetTimetableHelperTest extends \Codeception\Test\Unit
             ->setEnvironment(getenv('TK_API_URL'), getenv('TK_API_KEY'), getenv('TK_API_SECRET'))
             ->build();
         $departureTime = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
-        $originLocation = new ValueObject\Location('IST', ValueObject\Location::MILTIPLE_AIRPORT_TRUE);
-        $destinationLocation  = new ValueObject\Location('ESB', ValueObject\Location::MILTIPLE_AIRPORT_TRUE);
+        $originLocation = new ValueObject\Location('IST', ValueObject\Location::MULTIPLE_AIRPORT_TRUE);
+        $destinationLocation  = new ValueObject\Location('ESB', ValueObject\Location::MULTIPLE_AIRPORT_TRUE);
         $departureDateTime = new ValueObject\DepartureDateTime(
             new DateTimeImmutable($departureTime),
             'P3D',

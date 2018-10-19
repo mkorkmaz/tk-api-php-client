@@ -14,8 +14,8 @@ class GetTimeTableTest extends EndpointAbstract
     public function shouldGetResponseSuccessfully() : void
     {
         $departureTime = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
-        $originLocation = new ValueObject\Location('IST', ValueObject\Location::MILTIPLE_AIRPORT_TRUE);
-        $destinationLocation  = new ValueObject\Location('JFK', ValueObject\Location::MILTIPLE_AIRPORT_TRUE);
+        $originLocation = new ValueObject\Location('IST', ValueObject\Location::MULTIPLE_AIRPORT_TRUE);
+        $destinationLocation  = new ValueObject\Location('JFK', ValueObject\Location::MULTIPLE_AIRPORT_TRUE);
         $departureDateTime = new ValueObject\DepartureDateTime(
             new DateTimeImmutable($departureTime),
             'P3D',
