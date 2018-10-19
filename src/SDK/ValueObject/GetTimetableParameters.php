@@ -29,6 +29,16 @@ final class GetTimetableParameters implements ValueObjectInterface
         $this->setTripType($tripType);
     }
 
+    public static function createFromArray(array $parameters) : GetTimetableParameters
+    {
+        return new GetTimetableParameters();
+    }
+
+    public static function createFromJson(string $json) : GetTimetableParameters
+    {
+        return self::createFromArray(json_decode($json, (bool) JSON_OBJECT_AS_ARRAY));
+    }
+
     public function withReturnDate(?DateTimeImmutable $returnDate) : GetTimetableParameters
     {
         $this->setReturnDate($returnDate);
