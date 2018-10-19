@@ -70,7 +70,7 @@ class CalculateFlightMilesParameters implements ValueObjectInterface
                 implode(', ', self::$cardTypesEnum)
             );
         }
-        $this->$cardType = $cardType;
+        $this->cardType = $cardType;
         return $this;
     }
 
