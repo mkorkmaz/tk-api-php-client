@@ -21,7 +21,6 @@ final class GetTimetableParametersFactory implements ValueObjectFactoryInterface
     public static function createFromArray(array $parameters) : GetTimetableParameters
     {
         $originDestinationInformation = $parameters['OTA_AirScheduleRQ']['OriginDestinationInformation'];
-        $departureTime = $originDestinationInformation['DepartureDateTime']['Date'];
         $originLocation = new Location(
             $originDestinationInformation['OriginLocation']['LocationCode'],
             $originDestinationInformation['OriginLocation']['MultiAirportCityInd']
@@ -31,7 +30,7 @@ final class GetTimetableParametersFactory implements ValueObjectFactoryInterface
             $originDestinationInformation['DestinationLocation']['MultiAirportCityInd']
         );
         $departureDateTime = new DepartureDateTime(
-            new DateTimeImmutable($departureTime),
+            DateTimeImmutable::createFromFormat('Y-m-d',  $originDestinationInformation['DepartureDateTime']['Date']),
             'P3D',
             'P3D'
         );
@@ -54,7 +53,7 @@ final class GetTimetableParametersFactory implements ValueObjectFactoryInterface
             $parameters['tripType']
         );
         if (array_key_exists('returnDate', $parameters)) {
-            $returnDate = new DateTimeImmutable($parameters['returnDate']);
+            $returnDate = DateTimeImmutable::createFromFormat('Y-m-d', $parameters['returnDate']);
             $getTimetableParameters = $getTimetableParameters->withReturnDate($returnDate);
         }
         return $getTimetableParameters;
