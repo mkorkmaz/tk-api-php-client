@@ -30,14 +30,14 @@ class CalculateAwardMilesWithTaxParametersFactoryTest extends \Codeception\Test\
     {
         $json =<<<JSON
 {
-	"awardType": "E",
-	"wantMoreMiles": "T",
-	"isOneWay": "T",
-	"departureOrigin": "IST",
-	"departureDestination": "FRA",
-	"departureDateDay": 12,
-	"departureDateMonth": 11,
-	"departureDateYear": 2017
+    "awardType": "E",
+    "wantMoreMiles": "T",
+    "isOneWay": "T",
+    "departureOrigin": "IST",
+    "departureDestination": "FRA",
+    "departureDateDay": 12,
+    "departureDateMonth": 11,
+    "departureDateYear": 2017
 }
 JSON;
         $parameterObject = CalculateAwardMilesWithTaxParametersFactory::createFromJson($json);

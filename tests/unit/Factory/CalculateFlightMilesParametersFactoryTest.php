@@ -29,14 +29,14 @@ class CalculateFlightMilesParametersFactoryTest extends \Codeception\Test\Unit
     {
         $json =<<<JSON
 {
-	"cabin_code": "Y",
-	"card_type": "EP",
-	"destination": "IST",
-	"flightDate": "21.04.2017",
-	"operatingFlightNumber": "TK1000",
-	"origin": "FRA"
+    "cabin_code": "Y",
+    "card_type": "EP",
+    "destination": "IST",
+    "flightDate": "21.04.2017",
+    "operatingFlightNumber": "TK1000",
+    "origin": "FRA"
 }
-	
+
 JSON;
         $parameterObject = CalculateFlightMilesParametersFactory::createFromJson($json);
         $this->assertInstanceOf(CalculateFlightMilesParameters::class, $parameterObject);
