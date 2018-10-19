@@ -101,7 +101,7 @@ $response = $client->getTimetable($getTimetableParametersObject);
 
 ### Example with Factory Using An Array
 
-You can build an array that is basically json_encode version of the object mentioned in theprevious example.
+You can build an array that is basically json_encode version of the object mentioned in the previous example.
 
 ```php
 <?php
