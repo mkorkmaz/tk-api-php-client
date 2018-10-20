@@ -16,8 +16,10 @@ class GetTimetableHelperTest extends \Codeception\Test\Unit
     
     protected function _before()
     {
-        $dotenv = new Dotenv\Dotenv(__DIR__.'/../../..');
-        $dotenv->load();
+        if (file_exists(__DIR__.'/../../../.env')) {
+            $dotenv = new Dotenv\Dotenv(__DIR__ . '/../../..');
+            $dotenv->load();
+        }
         $client = ClientBuilder::create()
             ->setEnvironment(getenv('TK_API_URL'), getenv('TK_API_KEY'), getenv('TK_API_SECRET'))
             ->build();
