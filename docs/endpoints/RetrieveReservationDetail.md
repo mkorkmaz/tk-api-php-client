@@ -15,6 +15,40 @@ $this->client->retrieveReservationDetail($retrieveReservationDetailParameters);
 
 ```
 
+### Example with Factory Using JSON Query
+
+```php
+<?php
+
+use TK\SDK\ValueObject\Factory\RetrieveReservationDetailParametersFactory;
+
+$json =<<<JSON
+{
+    "airlineCode": "TK",
+    "languageCode": "TR"
+}
+JSON;
+$parameterObject = RetrieveReservationDetailParametersFactory::createFromJson($json);
+$response = $client->retrieveReservationDetail($parameterObject);
+
+```
+
+### Example with Factory Using An Array
+
+You can build an array that is basically json_encode version of the object mentioned in the previous example.
+
+```php
+<?php
+
+use TK\SDK\ValueObject\Factory\RetrieveReservationDetailParametersFactory;
+
+$parameterObject = RetrieveReservationDetailParametersFactory::createFromArray($parametersArray);
+
+$response = $client->retrieveReservationDetail($parameterObject);
+
+```
+
+
 ### Example with ValueObjects
 
 ```php

@@ -15,6 +15,102 @@ $client->getAvailability($getAvailabilityParametersObject);
 
 ```
 
+### Example with Factory Using JSON Query
+
+```php
+<?php
+
+use TK\SDK\ValueObject\Factory\GetAvailabilityParametersFactory;
+
+$json =<<<JSON
+{
+  "ReducedDataIndicator":false,
+  "RoutingType":"r",
+  "PassengerTypeQuantity":[
+    {
+      "Code":"adult",
+      "Quantity":1
+    },
+    {
+      "Code":"child",
+      "Quantity":1
+    },
+    {
+      "Code":"infant",
+      "Quantity":0
+    }
+  ],
+  "OriginDestinationInformation":[
+    {
+      "DepartureDateTime":{
+        "WindowAfter":"P0D",
+        "WindowBefore":"P0D",
+        "Date":"14OCT"
+      },
+      "OriginLocation":{
+        "LocationCode":"IST",
+        "MultiAirportCityInd":true
+      },
+      "DestinationLocation":{
+        "LocationCode":"ESB",
+        "MultiAirportCityInd":true
+      },
+      "CabinPreferences":[
+        {
+          "Cabin":"ECONOMY"
+        },
+        {
+          "Cabin":"BUSINESS"
+        }
+      ]
+    },
+    {
+      "DepartureDateTime":{
+        "WindowAfter":"P0D",
+        "WindowBefore":"P0D",
+        "Date":"09JAN"
+      },
+      "OriginLocation":{
+        "LocationCode":"ESB",
+        "MultiAirportCityInd":false
+      },
+      "DestinationLocation":{
+        "LocationCode":"IST",
+        "MultiAirportCityInd":false
+      },
+      "CabinPreferences":[
+        {
+          "Cabin":"ECONOMY"
+        },
+        {
+          "Cabin":"BUSINESS"
+        }
+      ]
+    }
+  ]
+}
+JSON;
+
+$getAvailabilityParameters = GetAvailabilityParametersFactory::createFromJson($json);
+$response = $client->getAvailability($getAvailabilityParameters);
+
+```
+
+### Example with Factory Using An Array
+
+You can build an array that is basically json_encode version of the object mentioned in the previous example.
+
+```php
+<?php
+
+use TK\SDK\ValueObject\Factory\GetAvailabilityParametersFactory;
+
+$getAvailabilityParameters = GetAvailabilityParametersFactory::createFromArray($parametersArray);
+
+$response = $client->getAvailability($getAvailabilityParameters);
+
+```
+
 ### Example with ValueObjects
 
 ```php

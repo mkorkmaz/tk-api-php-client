@@ -15,6 +15,39 @@ $client->getPortList($getPortListParametersObject);
 
 ```
 
+### Example with Factory Using JSON Query
+
+```php
+<?php
+
+use TK\SDK\ValueObject\Factory\GetPortListParametersFactory;
+
+$json =<<<JSON
+{
+    "airlineCode": "TK",
+    "languageCode": "TR"
+}
+JSON;
+$parameterObject = GetPortListParametersFactory::createFromJson($json);
+$response = $client->getPortList($parameterObject);
+
+```
+
+### Example with Factory Using An Array
+
+You can build an array that is basically json_encode version of the object mentioned in the previous example.
+
+```php
+<?php
+
+use TK\SDK\ValueObject\Factory\GetPortListParametersFactory;
+
+$parameterObject = GetPortListParametersFactory::createFromArray($parametersArray);
+
+$response = $client->getPortList($parameterObject);
+
+```
+
 ### Example with ValueObjects
 
 ```php

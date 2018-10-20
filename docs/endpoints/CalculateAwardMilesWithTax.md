@@ -15,6 +15,46 @@ $this->client->calculateAwardMilesWithTax($calculateAwardMilesWithTaxParameters)
 
 ```
 
+### Example with Factory Using JSON Query
+
+```php
+<?php
+
+use TK\SDK\ValueObject\Factory\CalculateAwardMilesWithTaxParametersFactory;
+
+$json =<<<JSON
+{
+    "awardType": "E",
+    "wantMoreMiles": "T",
+    "isOneWay": "T",
+    "departureOrigin": "IST",
+    "departureDestination": "FRA",
+    "departureDateDay": 12,
+    "departureDateMonth": 11,
+    "departureDateYear": 2017
+}
+JSON;
+$parameterObject = CalculateAwardMilesWithTaxParametersFactory::createFromJson($json);
+
+$response = $client->calculateAwardMilesWithTax($parameterObject);
+
+```
+
+### Example with Factory Using An Array
+
+You can build an array that is basically json_encode version of the object mentioned in the previous example.
+
+```php
+<?php
+
+use TK\SDK\ValueObject\Factory\CalculateAwardMilesWithTaxParametersFactory;
+
+$parameterObject = CalculateAwardMilesWithTaxParametersFactory::createFromArray($parametersArray);
+
+$response = $client->calculateAwardMilesWithTax($parameterObject);
+
+```
+
 ### Example with ValueObjects
 
 ```php
