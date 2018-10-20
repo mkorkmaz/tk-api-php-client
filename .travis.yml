@@ -10,9 +10,9 @@ before_script:
 script:
   - vendor/bin/codecept run unit --coverage --coverage-xml
 after_script:
-  - if [ $TRAVIS_PHP_VERSION = '7.1' ]; then php vendor/bin/coveralls; fi
+  - if [ $TRAVIS_PHP_VERSION = '7.1' ]; then php vendor/bin/php-coveralls; fi
 after_success:
-  - travis_retry php vendor/bin/coveralls -v
+  - travis_retry php vendor/bin/php-coveralls -v
   - vendor/bin/test-reporter
 env:
   global:
