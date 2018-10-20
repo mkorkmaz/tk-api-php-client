@@ -19,9 +19,10 @@ class EnvironmentTest extends \Codeception\Test\Unit
 
     protected function _before()
     {
-        $dotenv = new Dotenv\Dotenv(__DIR__.'/../..');
-        $dotenv->load();
-
+        if (file_exists(__DIR__.'/../../..')) {
+            $dotenv = new Dotenv\Dotenv(__DIR__ . '/../..');
+            $dotenv->load();
+        }
         $this->apiUrl  = getenv('TK_API_URL');
         $this->apiKey  = getenv('TK_API_KEY');
         $this->apiSecret  = getenv('TK_API_SECRET');

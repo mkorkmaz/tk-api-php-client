@@ -18,8 +18,11 @@ abstract class EndpointAbstract extends \Codeception\Test\Unit
     protected function _before()
     {
         ini_set('xdebug.overload_var_dump', '0');
-        $dotenv = new Dotenv\Dotenv(__DIR__.'/../../..');
-        $dotenv->load();
+        if (file_exists(__DIR__.'/../../..')) {
+            $dotFile = __DIR__.'/../../..';
+            $dotenv = new Dotenv\Dotenv($dotFile);
+            $dotenv->load();
+        }
         $this->client = ClientBuilder::create()
             ->setEnvironment(getenv('TK_API_URL'), getenv('TK_API_KEY'), getenv('TK_API_SECRET'))
             ->build();
