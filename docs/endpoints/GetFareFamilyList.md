@@ -24,14 +24,12 @@ use TK\SDK\ValueObject\Factory\GetFareFamilyListParametersFactory;
 
 $json =<<<JSON
 {
-    "cabin_code": "Y",
-    "card_type": "EP",
-    "destination": "IST",
-    "flightDate": "21.04.2017",
-    "operatingFlightNumber": "TK1000",
-    "origin": "FRA"
+    "portList":[
+        "IST",
+        "JFK"
+    ],
+    "isMilesRequest" : "T"
 }
-
 JSON;
 $parameterObject = GetFareFamilyListParametersFactory::createFromJson($json);
 
