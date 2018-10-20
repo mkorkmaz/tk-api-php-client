@@ -12,7 +12,8 @@
     },
     "require-dev": {
         "codeception/codeception": "^2.5",
-        "vlucas/phpdotenv": "^2.5"
+        "vlucas/phpdotenv": "^2.5",
+        "satooshi/php-coveralls": "^2.0"
     },
     "license": "MIT",
     "authors": [
