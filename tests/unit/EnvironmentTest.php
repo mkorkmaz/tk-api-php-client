@@ -19,7 +19,7 @@ class EnvironmentTest extends \Codeception\Test\Unit
 
     protected function _before()
     {
-        if (file_exists(__DIR__.'/../../..')) {
+        if (file_exists(__DIR__.'/../../../.env')) {
             $dotenv = new Dotenv\Dotenv(__DIR__ . '/../..');
             $dotenv->load();
         }

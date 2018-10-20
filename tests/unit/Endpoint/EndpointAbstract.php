@@ -18,7 +18,7 @@ abstract class EndpointAbstract extends \Codeception\Test\Unit
     protected function _before()
     {
         ini_set('xdebug.overload_var_dump', '0');
-        if (file_exists(__DIR__.'/../../..')) {
+        if (file_exists(__DIR__.'/../../../.env')) {
             $dotFile = __DIR__.'/../../..';
             $dotenv = new Dotenv\Dotenv($dotFile);
             $dotenv->load();
