@@ -26,7 +26,7 @@ class CalculateAwardMilesWithTaxParametersFactoryTest extends \Codeception\Test\
      * @test
      * @throws \Exception
      */
-    public function shouldReturnGetTimetableParameters() : void
+    public function shouldReturnCalculateAwardMilesWithTaxParameters() : void
     {
         $json =<<<JSON
 {
