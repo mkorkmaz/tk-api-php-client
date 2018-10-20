@@ -26,7 +26,7 @@ class GetFareFamilyListParametersFactoryTest extends \Codeception\Test\Unit
      * @test
      * @throws \Exception
      */
-    public function shouldReturnCalculateFlightMilesParameters() : void
+    public function shouldReturnGetFareFamilyListParameters() : void
     {
         $json =<<<JSON
 {
