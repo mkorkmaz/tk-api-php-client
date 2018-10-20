@@ -8,7 +8,7 @@ php:
 before_script:
   - composer install -n
 script:
-  - vendor/bin/codecept run --coverage --coverage-xml
+  - vendor/bin/codecept run unit --coverage --coverage-xml
 after_script:
   - if [ $TRAVIS_PHP_VERSION = '7.1' ]; then php vendor/bin/coveralls; fi
 after_success:
