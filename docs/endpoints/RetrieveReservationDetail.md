@@ -24,8 +24,8 @@ use TK\SDK\ValueObject\Factory\RetrieveReservationDetailParametersFactory;
 
 $json =<<<JSON
 {
-    "airlineCode": "TK",
-    "languageCode": "TR"
+    "UniqueId": "TT8VN8",
+    "Surname": "CELIKTAS"
 }
 JSON;
 $parameterObject = RetrieveReservationDetailParametersFactory::createFromJson($json);
