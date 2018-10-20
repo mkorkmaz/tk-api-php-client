@@ -1,5 +1,7 @@
 # Turkish Airlines' TK API Unofficial PHP SDK
 
+[![Build Status](https://api.travis-ci.org/mkorkmaz/tk-api-php-sdk.svg?branch=master)](https://travis-ci.org/mkorkmaz/tk-api-php-sdk) 
+[![Coverage Status](https://coveralls.io/repos/github/mkorkmaz/tk-api-php-sdk/badge.svg?branch=master)](https://coveralls.io/github/mkorkmaz/tk-api-php-sdk?branch=master) 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mkorkmaz/tk-api-php-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mkorkmaz/tk-api-php-sdk/?branch=master) 
 
 See the official documentation at [Turkish Airlines Developer Portal](https://developer.turkishairlines.com/)
