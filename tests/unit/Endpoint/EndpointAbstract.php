@@ -5,6 +5,8 @@ namespace TK\Test\Unit\Endpoint;
 
 use Dotenv;
 use TK\SDK\ClientBuilder;
+use Monolog\Logger;
+use Monolog\Handler\NullHandler;
 
 abstract class EndpointAbstract extends \Codeception\Test\Unit
 {
@@ -17,14 +19,16 @@ abstract class EndpointAbstract extends \Codeception\Test\Unit
     
     protected function _before()
     {
-        ini_set('xdebug.overload_var_dump', '0');
         if (file_exists(__DIR__.'/../../../.env')) {
             $dotFile = __DIR__.'/../../..';
             $dotenv = new Dotenv\Dotenv($dotFile);
             $dotenv->load();
         }
+        $logger = new Logger('my_logger');
+        $logger->pushHandler(new NullHandler());
         $this->client = ClientBuilder::create()
             ->setEnvironment(getenv('TK_API_URL'), getenv('TK_API_KEY'), getenv('TK_API_SECRET'))
+            ->setLogger($logger)
             ->build();
     }
 
