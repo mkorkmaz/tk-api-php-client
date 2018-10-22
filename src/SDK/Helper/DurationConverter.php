@@ -45,26 +45,26 @@ class DurationConverter
 
     public static function toMinute(string $duration, ?string $format = 'l') : float
     {
-        return self::toSeconds($duration, $format) / 60;
+        return round(self::toSeconds($duration, $format) / 60, 2);
     }
 
     public static function toHour(string $duration, ?string $format = 'l') : float
     {
-        return self::toMinute($duration, $format) / 60;
+        return round(self::toMinute($duration, $format) / 60, 2);
     }
 
     public static function toDay(string $duration, ?string $format = 'l') : float
     {
-        return self::toHour($duration, $format) / 24;
+        return round(self::toHour($duration, $format) / 24, 2);
     }
 
     public static function toMonth(string $duration, ?string $format = 'l') : float
     {
-        return round(self::toDay($duration, $format) / 30, 2);
+        return round(self::toDay($duration, $format) / 30, 1);
     }
 
     public static function toYear(string $duration, ?string $format = 'l') : float
     {
-        return round(self::toDay($duration, $format) / 365, 2);
+        return round(self::toDay($duration, $format) / 365, 1);
     }
 }
