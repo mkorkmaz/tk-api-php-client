@@ -65,7 +65,8 @@ final class GetAvailabilityParametersFactory implements ValueObjectFactoryInterf
             $getAvailabilityParameters = $getAvailabilityParameters->withTargetSource();
         }
         foreach ($originDestinationInformations as $originDestinationInformationObject) {
-            $getAvailabilityParameters = $getAvailabilityParameters->withOriginDestinationInformation($originDestinationInformationObject);
+            $getAvailabilityParameters = $getAvailabilityParameters
+                ->withOriginDestinationInformation($originDestinationInformationObject);
         }
         return $getAvailabilityParameters;
     }
