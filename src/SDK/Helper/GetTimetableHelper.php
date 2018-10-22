@@ -15,7 +15,8 @@ class GetTimetableHelper
     public function getFlightExtraInfo() : array
     {
         $extraOTAAirScheduleRS = $this->responseData['extendedOTAAirScheduleRS']['extraOTAAirScheduleRS'];
-        $flightExtraInfo = $extraOTAAirScheduleRS['extraOTAAirScheduleRSListType']['flightExtraInfo'][0];
+        $flightExtraInfo = $this
+            ->getFlightExtraInfoData($extraOTAAirScheduleRS['extraOTAAirScheduleRSListType']['flightExtraInfo']);
         return [
             'totalDuration' => DurationConverter::toMinute($flightExtraInfo['totalDuration']),
             'flightDuration' => DurationConverter::toMinute($flightExtraInfo['flightDuration']),
@@ -24,9 +25,20 @@ class GetTimetableHelper
         ];
     }
 
+    private function getFlightExtraInfoData($flightExtraInfo) : array
+    {
+        if (array_key_exists('totalDuration', $flightExtraInfo)) {
+            return $flightExtraInfo;
+        }
+        return $flightExtraInfo[0];
+    }
+
     public function getOriginDestinationOptions() : array
     {
         $airScheduleRS = $this->responseData['extendedOTAAirScheduleRS']['OTA_AirScheduleRS'];
+        if (array_key_exists('FlightSegment', $airScheduleRS['OriginDestinationOptions']['OriginDestinationOption'])) {
+            return [$airScheduleRS['OriginDestinationOptions']['OriginDestinationOption']];
+        }
         return $airScheduleRS['OriginDestinationOptions']['OriginDestinationOption'];
     }
 

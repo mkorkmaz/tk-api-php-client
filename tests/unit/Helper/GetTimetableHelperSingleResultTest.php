@@ -6,7 +6,7 @@ use TK\SDK\Helper\GetTimetableHelper;
 use TK\SDK\ValueObject;
 use Dotenv;
 
-class GetTimetableHelperTest extends \Codeception\Test\Unit
+class GetTimetableHelperSingleResultTest extends \Codeception\Test\Unit
 {
     /**
      * @var \UnitTester
@@ -25,7 +25,7 @@ class GetTimetableHelperTest extends \Codeception\Test\Unit
             ->build();
         $departureTime = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
         $originLocation = new ValueObject\Location('IST', ValueObject\Location::MULTIPLE_AIRPORT_TRUE);
-        $destinationLocation  = new ValueObject\Location('JFK', ValueObject\Location::MULTIPLE_AIRPORT_TRUE);
+        $destinationLocation  = new ValueObject\Location('BOG', ValueObject\Location::MULTIPLE_AIRPORT_TRUE);
         $departureDateTime = new ValueObject\DepartureDateTime(
             new DateTimeImmutable($departureTime),
             'P3D',
