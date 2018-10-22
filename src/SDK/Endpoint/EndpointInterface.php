@@ -5,8 +5,9 @@ namespace TK\SDK\Endpoint;
 
 interface EndpointInterface
 {
-    public function getEndpoint();
-    public function getHeaders();
-    public function getQueryParams();
-    public function getHttpRequestMethod();
+    public function getEndpoint() : string;
+    public function getHeaders() : array;
+    public function getQueryParams() : array;
+    public function getHttpRequestMethod() : string;
+    public function getResponseRoot() : string;
 }

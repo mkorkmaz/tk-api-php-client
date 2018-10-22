@@ -8,6 +8,7 @@ abstract class EndpointAbstract
     protected $queryParameters = [];
     protected $headers = [];
     protected $httpRequestMethod = 'POST';
+    protected $responseRoot = '';
 
     public function getEndpoint() : string
     {
@@ -27,5 +28,10 @@ abstract class EndpointAbstract
     public function getHttpRequestMethod() : string
     {
         return $this->httpRequestMethod;
+    }
+
+    public function getResponseRoot() : string
+    {
+        return $this->responseRoot;
     }
 }

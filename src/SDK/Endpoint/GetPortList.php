@@ -11,6 +11,7 @@ final class GetPortList extends EndpointAbstract implements EndpointInterface
     {
         $this->endpoint = '/getPortList';
         $this->httpRequestMethod = 'GET';
+        $this->responseRoot = 'Port';
         $this->queryParameters = $queryParameters->getValue();
     }
 }

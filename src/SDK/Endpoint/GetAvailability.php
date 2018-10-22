@@ -10,6 +10,7 @@ final class GetAvailability extends EndpointAbstract implements EndpointInterfac
     public function __construct(GetAvailabilityParameters $queryParameters)
     {
         $this->endpoint = '/getAvailability';
+        $this->responseRoot = 'availabilityOTAResponse';
         $this->queryParameters = $queryParameters->getValue();
     }
 }

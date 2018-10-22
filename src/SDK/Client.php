@@ -134,7 +134,7 @@ final class Client
                 'status' => $responseBody['status'],
                 'code' => $responseBody['message']['code']
             ],
-            'data' => $responseBody['data']
+            'data' => $responseBody['data'][$endpoint->getResponseRoot()]
         ];
     }
 

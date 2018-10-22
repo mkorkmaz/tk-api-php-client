@@ -53,9 +53,9 @@ class GetTimetableHelperTest extends \Codeception\Test\Unit
     /**
      * @test
      */
-    public function shouldGetDataSuccessfully()
+    public function shouldGetDataSuccessfully() : void
     {
-        $helper = new GetTimetableHelper($this->response['data']['timeTableOTAResponse']);
+        $helper = new GetTimetableHelper($this->response['data']);
         $flightInfo = $helper->getFlightExtraInfo();
         $this->assertArrayHasKey('durationType', $flightInfo);
 
