@@ -46,8 +46,8 @@ class DurationConverterTest extends \Codeception\Test\Unit
     public function shouldConvertDurationToMonthSuccessfully() : void
     {
         $duration = 'P0Y9M4DT1H5M0S';
-        $expected = round( 9*30/365 + 4/365 + 1/365/60 + 5/365/60/60, 2);
+        $expected = round( 9 + 4/30 + 1/30/60 + 5/30/60/60, 2);
         $result = DurationConverter::toMonth($duration);
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $result, 'shouldConvertDurationToMonthSuccessfully');
     }
 }

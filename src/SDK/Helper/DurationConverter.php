@@ -60,7 +60,7 @@ class DurationConverter
 
     public static function toMonth(string $duration, ?string $format = 'l') : float
     {
-        return self::toDay($duration, $format) / 30;
+        return round(self::toDay($duration, $format) / 30, 2);
     }
 
     public static function toYear(string $duration, ?string $format = 'l') : float
