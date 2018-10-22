@@ -47,7 +47,7 @@ class DurationConverterTest extends \Codeception\Test\Unit
     {
         $duration = 'P0Y9M4DT1H5M0S';
         $expected = round( 9*30/365 + 4/365 + 1/365/60 + 5/365/60/60, 2);
-        $result = DurationConverter::toYear($duration);
+        $result = DurationConverter::toMonth($duration);
         $this->assertEquals($expected, $result);
     }
 }
