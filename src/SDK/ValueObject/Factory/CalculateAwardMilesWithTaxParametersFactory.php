@@ -57,10 +57,10 @@ class CalculateAwardMilesWithTaxParametersFactory implements ValueObjectFactoryI
             array_key_exists('arrivalDateMonth', $parameters) &&
             array_key_exists('arrivalDateYear', $parameters)
         ) {
-            $departureDate = $parameters['arrivalDateYear'] . '-' . $parameters['arrivalDateMonth'] .
+            $arrivalDate = $parameters['arrivalDateYear'] . '-' . $parameters['arrivalDateMonth'] .
                 '-' . $parameters['arrivalDateDay'];
             $calculateAwardMilesWithTaxParameters = $calculateAwardMilesWithTaxParameters
-                ->withDepartureDate(DateTimeImmutable::createFromFormat('Y-m-d', $departureDate));
+                ->withArrivalDate(DateTimeImmutable::createFromFormat('Y-m-d', $arrivalDate));
         }
         if (array_key_exists('ptcType', $parameters)) {
             $calculateAwardMilesWithTaxParameters = $calculateAwardMilesWithTaxParameters
