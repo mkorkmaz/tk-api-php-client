@@ -70,7 +70,6 @@ JSON;
         $parameterObject->withClassCode();
         $this->assertInstanceOf(CalculateFlightMilesParameters::class, $parameterObject);
         $this->assertArrayHasKey('class_code', $parameterObject->getValue());
-
     }
     /**
      * @test
