@@ -43,7 +43,7 @@ class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
         return $this;
     }
 
-    public function withDepartureDate(\DateTimeImmutable $date) : CalculateAwardMilesWithTaxParameters
+    public function withDepartureDate(DateTimeImmutable $date) : CalculateAwardMilesWithTaxParameters
     {
         $this->departureDate = $date;
         return $this;
@@ -61,7 +61,7 @@ class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
         return $this;
     }
 
-    public function withArrivalDate(\DateTimeImmutable $date) : CalculateAwardMilesWithTaxParameters
+    public function withArrivalDate(DateTimeImmutable $date) : CalculateAwardMilesWithTaxParameters
     {
         $this->arrivalDate = $date;
         return $this;
@@ -93,7 +93,7 @@ class CalculateAwardMilesWithTaxParameters implements ValueObjectInterface
 
     private function getIataCode(string $iataCode) : string
     {
-        if (!preg_match('/[A-Z]{3}/', $iataCode)) {
+        if (!preg_match('/^[A-Z]{3}$/', $iataCode)) {
             {
                 throw new InvalidArgumentException(
                     sprintf(

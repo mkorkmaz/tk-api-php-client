@@ -28,7 +28,7 @@ class CalculateFlightMilesParameters implements ValueObjectInterface
 
     private function getIataCode(string $iataCode) : string
     {
-        if (!preg_match('/[A-Z]{3}/', $iataCode)) {
+        if (!preg_match('/^[A-Z]{3}$/', $iataCode)) {
             {
                 throw new InvalidArgumentException(
                     sprintf(
