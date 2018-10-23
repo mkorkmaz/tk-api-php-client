@@ -23,7 +23,7 @@ class CalculateFlightMilesParametersFactory implements ValueObjectFactoryInterfa
         if (array_key_exists('cabin_code', $parameters) && $parameters['cabin_code'] === 'Y') {
             $calculateFlightMilesParameters = $calculateFlightMilesParameters->withCabinCode();
         }
-        if (array_key_exists('class_code', $parameters) && $parameters['class_code'] === 'TY') {
+        if (array_key_exists('class_code', $parameters) && $parameters['class_code'] === 'Y') {
             $calculateFlightMilesParameters = $calculateFlightMilesParameters->withClassCode();
         }
         if (array_key_exists('marketingClassCode', $parameters)) {

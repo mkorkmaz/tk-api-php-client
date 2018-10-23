@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit\Factory;
 
+use TK\SDK\Exception\InvalidArgumentException;
 use TK\SDK\ValueObject\Factory\GetPortListParametersFactory;
 use TK\SDK\ValueObject\GetPortListParameters;
 
@@ -36,5 +37,21 @@ JSON;
         $parameterObject = GetPortListParametersFactory::createFromJson($json);
         $this->assertInstanceOf(GetPortListParameters::class, $parameterObject);
         $this->assertEquals(json_decode($json, true), $parameterObject->getValue());
+    }
+
+    /**
+     * @test
+     * @throws \Exception
+     * @expectedException InvalidArgumentException
+     */
+    public function shouldFailForInvalidJson() : void
+    {
+        $json =<<<JSON
+{
+    "airlineCode: "TK",
+    "languageCode": "TR"
+}
+JSON;
+        GetPortListParametersFactory::createFromJson($json);
     }
 }

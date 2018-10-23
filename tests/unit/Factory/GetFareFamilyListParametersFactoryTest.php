@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit\Factory;
 
+use TK\SDK\Exception\InvalidArgumentException;
 use TK\SDK\ValueObject\Factory\GetFareFamilyListParametersFactory;
 use TK\SDK\ValueObject\GetFareFamilyListParameters;
 
@@ -40,5 +41,42 @@ JSON;
         $parameterObject = GetFareFamilyListParametersFactory::createFromJson($json);
         $this->assertInstanceOf(GetFareFamilyListParameters::class, $parameterObject);
         $this->assertEquals(json_decode($json, true), $parameterObject->getValue());
+    }
+
+    /**
+     * @test
+     * @throws \Exception
+     * @expectedException InvalidArgumentException
+     */
+    public function shouldFailForInvalidJson() : void
+    {
+        $json =<<<JSON
+{
+    "portList:[
+        "IST",
+        "JFK"
+    ],
+    "isMilesRequest" : "T"
+}
+JSON;
+        GetFareFamilyListParametersFactory::createFromJson($json);
+    }
+
+    /**
+     * @test
+     * @expectedException InvalidArgumentException
+     */
+    public function shouldFailForInvalidAirportCode() : void
+    {
+        $json =<<<JSON
+{
+    "portList":[
+        "ISTT",
+        "JFK"
+    ],
+    "isMilesRequest" : "T"
+}
+JSON;
+        GetFareFamilyListParametersFactory::createFromJson($json);
     }
 }

@@ -73,4 +73,33 @@ class GetTimeTableTest extends EndpointAbstract
         $this->assertEquals('SUCCESS', $response['response']['status']);
         $this->assertEquals('TK-0000', $response['response']['code']);
     }
+
+    /**
+     * @test
+     * @expectedException \TK\SDK\Exception\InvalidArgumentException
+     */
+    public function shouldFailForInvalidDurationWindowAfter() : void
+    {
+        $departureTime = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
+        $departureDateTime = new ValueObject\DepartureDateTime(
+            new DateTimeImmutable($departureTime),
+            'P4D',
+            'P3D'
+        );
+    }
+
+
+    /**
+     * @test
+     * @expectedException \TK\SDK\Exception\InvalidArgumentException
+     */
+    public function shouldFailForInvalidDurationWindowBefore() : void
+    {
+        $departureTime = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
+        $departureDateTime = new ValueObject\DepartureDateTime(
+            new DateTimeImmutable($departureTime),
+            'P3D',
+            'P4D'
+        );
+    }
 }

@@ -35,7 +35,8 @@ class GetAvailabilityTest extends EndpointAbstract
             $passengerTypeQuantity
         );
         $getAvailabilityParameters =
-            $getAvailabilityParameters->withOriginDestinationInformation($originDestinationInformation);
+            $getAvailabilityParameters->withOriginDestinationInformation($originDestinationInformation)
+            ->withTargetSource();
         $response = $this->client->getAvailability($getAvailabilityParameters);
         $this->assertEquals(200, $response['status']);
         $this->assertEquals('SUCCESS', $response['response']['status']);
