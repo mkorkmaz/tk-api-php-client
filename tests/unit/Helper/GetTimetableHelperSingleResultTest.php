@@ -24,12 +24,12 @@ class GetTimetableHelperSingleResultTest extends \Codeception\Test\Unit
             ->setEnvironment(getenv('TK_API_URL'), getenv('TK_API_KEY'), getenv('TK_API_SECRET'))
             ->build();
         $departureTime = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
-        $originLocation = new ValueObject\Location('IST', ValueObject\Location::MULTIPLE_AIRPORT_TRUE);
-        $destinationLocation  = new ValueObject\Location('BOG', ValueObject\Location::MULTIPLE_AIRPORT_TRUE);
+        $originLocation = new ValueObject\Location('IST', ValueObject\Location::MULTIPLE_AIRPORT_FALSE);
+        $destinationLocation  = new ValueObject\Location('ESB', ValueObject\Location::MULTIPLE_AIRPORT_FALSE);
         $departureDateTime = new ValueObject\DepartureDateTime(
             new DateTimeImmutable($departureTime),
-            'P3D',
-            'P3D'
+            'P0D',
+            'P0D'
         );
         $originDestinationInformation = new ValueObject\OriginDestinationInformation(
             $departureDateTime,
@@ -40,10 +40,19 @@ class GetTimetableHelperSingleResultTest extends \Codeception\Test\Unit
             ->withDirectAndNonStopOnlyInd();
         $getTimetableParameters = new ValueObject\GetTimetableParameters(
             $airScheduleRQ,
-            ValueObject\GetTimetableParameters::SCHEDULE_TYPE_WEEKLY,
+            ValueObject\GetTimetableParameters::SCHEDULE_TYPE_DAILY,
             ValueObject\GetTimetableParameters::TRIP_TYPE_ONE_WAY
         );
         $this->response = $client->getTimetable($getTimetableParameters);
+        $this->response['data']['extendedOTAAirScheduleRS']['OTA_AirScheduleRS']
+        ['OriginDestinationOptions']['OriginDestinationOption']
+            = $this->response['data']['extendedOTAAirScheduleRS']['OTA_AirScheduleRS']
+        ['OriginDestinationOptions']['OriginDestinationOption'][0];
+
+        $this->response['data']['extendedOTAAirScheduleRS']['extraOTAAirScheduleRS']
+        ['extraOTAAirScheduleRSListType']['flightExtraInfo'] =  $this->response['data']['extendedOTAAirScheduleRS']
+        ['extraOTAAirScheduleRS']
+        ['extraOTAAirScheduleRSListType']['flightExtraInfo'][0];
     }
 
     protected function _after()
@@ -58,18 +67,12 @@ class GetTimetableHelperSingleResultTest extends \Codeception\Test\Unit
         $helper = new GetTimetableHelper($this->response['data']);
         $flightInfo = $helper->getFlightExtraInfo();
         $this->assertArrayHasKey('durationType', $flightInfo);
-
-        $originDestinationOptions = $helper->getOriginDestinationOptions();
-
-        foreach ($originDestinationOptions as $originDestinationOption) {
+        foreach ($helper->getOriginDestinationOptions() as $originDestinationOption) {
             $flightDetails = $helper->getFlightDetails($originDestinationOption);
-
             $this->assertArrayHasKey('FlightNumber', $flightDetails);
             $this->assertArrayHasKey('DepartureDateTime', $flightDetails);
             $this->assertArrayHasKey('OperationTime', $flightDetails);
             $this->assertArrayHasKey('ScheduleValidEndDate', $flightDetails);
-
-
             $operationAirline = $helper->getOperationAirline($originDestinationOption);
             $this->assertArrayHasKey('FlightNumber', $operationAirline);
             $this->assertArrayHasKey('Code', $operationAirline);
