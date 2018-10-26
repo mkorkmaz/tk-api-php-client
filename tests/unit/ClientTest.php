@@ -3,9 +3,13 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit;
 
+use TK\SDK\Exception\RequestException;
+use TK\SDK\Client;
 use TK\SDK\ValueObject\Factory\RetrieveReservationDetailParametersFactory;
 use TK\SDK\ClientBuilder;
+use TK\Test\Unit\Resources\ExampleEndpoint;
 use Dotenv;
+use ReflectionMethod;
 
 class ClientTest extends \Codeception\Test\Unit
 {
@@ -14,6 +18,9 @@ class ClientTest extends \Codeception\Test\Unit
      */
     protected $tester;
 
+    /**
+     * @var Client
+     */
     private $client;
     
     protected function _before()
@@ -66,5 +73,18 @@ JSON;
     public function shouldThrowExceptionForInvalidArgument() : void
     {
         $this->client->retrieveReservationDetail([]);
+    }
+
+    /**
+     * @test
+     * @expectedException \TK\SDK\Exception\RequestException
+     */
+    public function shouldThrowExceptionForGuzzleRequestError() : void
+    {
+        $endpoint = new ExampleEndpoint();
+
+        $httpRequest = new ReflectionMethod($this->client, 'httpRequest');
+        $httpRequest->setAccessible(true);
+        $httpRequest->invoke($this->client, $endpoint);
     }
 }
