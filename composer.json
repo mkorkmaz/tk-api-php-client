@@ -35,7 +35,7 @@
         }
     },
     "scripts": {
-        "unit-test": "vendor/bin/codecept run unit --coverage",
+        "unit-tests": "vendor/bin/codecept run unit --coverage",
         "phpcs": "vendor/bin/phpcs --standard=PSR2 src tests",
         "phpcbf": "vendor/bin/phpcbf --standard=PSR2 src tests"
     }
