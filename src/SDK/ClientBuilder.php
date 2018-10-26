@@ -3,12 +3,10 @@ declare(strict_types=1);
 
 namespace TK\SDK;
 
-use Monolog\ErrorHandler;
 use Psr\Log\LoggerInterface;
 use Monolog\Logger;
 use Monolog\Handler\ErrorLogHandler;
 use GuzzleHttp;
-use TK\SDK\Exception\InvalidArgumentException;
 
 final class ClientBuilder
 {
@@ -42,7 +40,7 @@ final class ClientBuilder
     private function getLogger() : Logger
     {
         $log = new Logger('SDK-API');
-        $log->pushHandler(new ErrorLogHandler(ErrorLogHandler::OPERATING_SYSTEM, Logger::WARNING));
+        $log->pushHandler(new ErrorLogHandler(ErrorLogHandler::OPERATING_SYSTEM, Logger::DEBUG));
         return $log;
     }
 

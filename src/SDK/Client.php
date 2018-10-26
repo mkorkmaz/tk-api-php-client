@@ -89,6 +89,7 @@ final class Client
         $endpointClass = $namespace . '\\' . \ucfirst($name);
         if (!\in_array($name, self::$validEndpoints, true) || !class_exists($endpointClass)) {
             $message = sprintf('%s (%s) is not valid TK API endpoint.', $name, $endpointClass);
+            $this->logger->error($message);
             throw new BadMethodCallException($message);
         }
         return $this->endpointFactory($endpointClass, $arguments);
@@ -119,8 +120,9 @@ final class Client
         $responseBodyString = (string) $response->getBody();
         $responseBody = json_decode($responseBodyString, true);
         if ($responseBody['status'] === 'FAILURE') {
+            $this->logger->error('TK API ERROR', $responseBody['message']);
             throw new RequestException(
-                'API ERROR: ' .
+                'TK API ERROR: ' .
                 $responseBody['message']['code'] . ' - ' .
                 $responseBody['message']['description'] . ' OriginalResponse: ' . $responseBodyString
             );
@@ -156,11 +158,22 @@ final class Client
             $uri .= '?' . http_build_query($endpoint->getQueryParams());
         }
         $options['headers'] = $this->headers;
+
+        $this->logger->debug(
+            'API call for :' . $endpoint->getEndpoint(),
+            [
+                'httpRequestMethod' => $httpRequestMethod,
+                'uri' => $uri,
+                'headers' => $this->headers,
+                'queryParams' => $endpoint->getQueryParams()
+            ]
+        );
         try {
             return $this->guzzleClient->{$httpRequestMethod}($uri, $options);
         } catch (GuzzleRequestException $e) {
             $exceptionMessage = (string) $e->getResponse()->getBody()->getContents();
-            $message = sprintf('TK API Request Error: %s', $exceptionMessage);
+            $message = sprintf('TK API REQUEST ERROR: %s', $exceptionMessage);
+            $this->logger->error($message);
             throw new RequestException($message);
         }
     }
