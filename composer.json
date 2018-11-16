@@ -39,6 +39,6 @@
         "unit-tests": "vendor/bin/codecept run unit --coverage",
         "phpcs": "vendor/bin/phpcs --standard=PSR2 src tests",
         "phpcbf": "vendor/bin/phpcbf --standard=PSR2 src tests",
-        "phpcs-object-calisthenics":  "vendor/bin/phpcs src -sp --standard=vendor/object-calisthenics/phpcs-calisthenics-rules/src/ObjectCalisthenics/ruleset.xml"
+        "bc-check": "php -dmemory_limit=2G vendor/bin/roave-backward-compatibility-check"
     }
 }
