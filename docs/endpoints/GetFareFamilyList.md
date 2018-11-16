@@ -20,7 +20,7 @@ $this->client->getFareFamilyList($getFareFamilyListParameters);
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\GetFareFamilyListParametersFactory;
+use TK\API\ValueObject\Factory\GetFareFamilyListParametersFactory;
 
 $json =<<<JSON
 {
@@ -44,7 +44,7 @@ You can build an array that is basically json_encode version of the object menti
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\GetFareFamilyListParametersFactory;
+use TK\API\ValueObject\Factory\GetFareFamilyListParametersFactory;
 
 $parameterObject = GetFareFamilyListParametersFactory::createFromArray($parametersArray);
 
@@ -56,7 +56,7 @@ $response = $client->getFareFamilyList($parameterObject);
 ```php
 <?php
 
-use TK\SDK\ValueObject\GetFareFamilyListParameters;
+use TK\API\ValueObject\GetFareFamilyListParameters;
 
 $getFareFamilyListParameters = (new GetFareFamilyListParameters())
 	->withAirportIataCode('IST')

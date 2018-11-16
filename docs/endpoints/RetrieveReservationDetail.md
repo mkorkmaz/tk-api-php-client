@@ -20,7 +20,7 @@ $this->client->retrieveReservationDetail($retrieveReservationDetailParameters);
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\RetrieveReservationDetailParametersFactory;
+use TK\API\ValueObject\Factory\RetrieveReservationDetailParametersFactory;
 
 $json =<<<JSON
 {
@@ -40,7 +40,7 @@ You can build an array that is basically json_encode version of the object menti
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\RetrieveReservationDetailParametersFactory;
+use TK\API\ValueObject\Factory\RetrieveReservationDetailParametersFactory;
 
 $parameterObject = RetrieveReservationDetailParametersFactory::createFromArray($parametersArray);
 
@@ -54,7 +54,7 @@ $response = $client->retrieveReservationDetail($parameterObject);
 ```php
 <?php
 
-use TK\SDK\ValueObject\RetrieveReservationDetailParameters;
+use TK\API\ValueObject\RetrieveReservationDetailParameters;
 
 $retrieveReservationDetailParameters = new RetrieveReservationDetailParameters(
 	'TT8VN8',

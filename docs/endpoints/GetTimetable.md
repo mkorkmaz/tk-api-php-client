@@ -20,7 +20,7 @@ $client->getTimetable($getTimetableParametersObject);
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\GetTimetableParametersFactory;
+use TK\API\ValueObject\Factory\GetTimetableParametersFactory;
 
 $jsonQuery =<<<JSON
 {
@@ -64,7 +64,7 @@ You can build an array that is basically json_encode version of the object menti
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\GetTimetableParametersFactory;
+use TK\API\ValueObject\Factory\GetTimetableParametersFactory;
 
 $getTimetableParametersObject = GetTimetableParametersFactory::createFromArray($parametersArray);
 
@@ -78,11 +78,11 @@ $response = $client->getTimetable($getTimetableParametersObject);
 <?php
 
 use DateTimeImmutable;
-use TK\SDK\ValueObject\Location;
-use TK\SDK\ValueObject\DepartureDateTime;
-use TK\SDK\ValueObject\OriginDestinationInformation;
-use TK\SDK\ValueObject\AirScheduleRQ;
-use TK\SDK\ValueObject\GetTimetableParameters;
+use TK\API\ValueObject\Location;
+use TK\API\ValueObject\DepartureDateTime;
+use TK\API\ValueObject\OriginDestinationInformation;
+use TK\API\ValueObject\AirScheduleRQ;
+use TK\API\ValueObject\GetTimetableParameters;
 
 $originLocation = new Location('IST', Location::MULTIPLE_AIRPORT_TRUE);
 $destinationLocation  = new Location('JFK', Location::MULTIPLE_AIRPORT_TRUE);

@@ -20,7 +20,7 @@ $client->getPortList($getPortListParametersObject);
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\GetPortListParametersFactory;
+use TK\API\ValueObject\Factory\GetPortListParametersFactory;
 
 $json =<<<JSON
 {
@@ -40,7 +40,7 @@ You can build an array that is basically json_encode version of the object menti
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\GetPortListParametersFactory;
+use TK\API\ValueObject\Factory\GetPortListParametersFactory;
 
 $parameterObject = GetPortListParametersFactory::createFromArray($parametersArray);
 
@@ -53,7 +53,7 @@ $response = $client->getPortList($parameterObject);
 ```php
 <?php
 
-use TK\SDK\ValueObject\GetPortListParameters;
+use TK\API\ValueObject\GetPortListParameters;
 
 $getPortListParameters = (new GetPortListParameters(
 	GetPortListParameters::AIRLINE_CODE_TURKISH_AIRLINES

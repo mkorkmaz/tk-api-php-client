@@ -20,7 +20,7 @@ $client->getAvailability($getAvailabilityParametersObject);
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\GetAvailabilityParametersFactory;
+use TK\API\ValueObject\Factory\GetAvailabilityParametersFactory;
 
 $json =<<<JSON
 {
@@ -103,7 +103,7 @@ You can build an array that is basically json_encode version of the object menti
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\GetAvailabilityParametersFactory;
+use TK\API\ValueObject\Factory\GetAvailabilityParametersFactory;
 
 $getAvailabilityParameters = GetAvailabilityParametersFactory::createFromArray($parametersArray);
 
@@ -117,11 +117,11 @@ $response = $client->getAvailability($getAvailabilityParameters);
 <?php
 
 use DateTimeImmutable;
-use TK\SDK\ValueObject\Location;
-use TK\SDK\ValueObject\DepartureDateTime;
-use TK\SDK\ValueObject\OriginDestinationInformation;
-use TK\SDK\ValueObject\PassengerTypeQuantity;
-use TK\SDK\ValueObject\GetAvailabilityParameters;
+use TK\API\ValueObject\Location;
+use TK\API\ValueObject\DepartureDateTime;
+use TK\API\ValueObject\OriginDestinationInformation;
+use TK\API\ValueObject\PassengerTypeQuantity;
+use TK\API\ValueObject\GetAvailabilityParameters;
 
 $departureTime = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
 $departureDateTime = (new DepartureDateTime(

@@ -20,7 +20,7 @@ $this->client->calculateAwardMilesWithTax($calculateAwardMilesWithTaxParameters)
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\CalculateAwardMilesWithTaxParametersFactory;
+use TK\API\ValueObject\Factory\CalculateAwardMilesWithTaxParametersFactory;
 
 $json =<<<JSON
 {
@@ -47,7 +47,7 @@ You can build an array that is basically json_encode version of the object menti
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\CalculateAwardMilesWithTaxParametersFactory;
+use TK\API\ValueObject\Factory\CalculateAwardMilesWithTaxParametersFactory;
 
 $parameterObject = CalculateAwardMilesWithTaxParametersFactory::createFromArray($parametersArray);
 
@@ -60,7 +60,7 @@ $response = $client->calculateAwardMilesWithTax($parameterObject);
 ```php
 <?php
 
-use TK\SDK\ValueObject\CalculateAwardMilesWithTaxParameters;
+use TK\API\ValueObject\CalculateAwardMilesWithTaxParameters;
 
 $departureDate = gmdate('Y-m-d H:i:s', strtotime('-4 days'));
 

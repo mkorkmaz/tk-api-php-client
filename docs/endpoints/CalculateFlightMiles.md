@@ -20,7 +20,7 @@ $this->client->calculateFlightMiles($calculateFlightMilesParameters);
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\CalculateFlightMilesParametersFactory;
+use TK\API\ValueObject\Factory\CalculateFlightMilesParametersFactory;
 
 $json =<<<JSON
 {
@@ -46,7 +46,7 @@ You can build an array that is basically json_encode version of the object menti
 ```php
 <?php
 
-use TK\SDK\ValueObject\Factory\CalculateFlightMilesParametersFactory;
+use TK\API\ValueObject\Factory\CalculateFlightMilesParametersFactory;
 
 $parameterObject = CalculateFlightMilesParametersFactory::createFromArray($parametersArray);
 
@@ -59,7 +59,7 @@ $response = $client->calculateFlightMiles($parameterObject);
 ```php
 <?php
 
-use TK\SDK\ValueObject\CalculateFlightMilesParameters;
+use TK\API\ValueObject\CalculateFlightMilesParameters;
 
 $flightDate = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
 
