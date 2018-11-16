@@ -15,8 +15,7 @@
         "codeception/codeception": "^2.5",
         "vlucas/phpdotenv": "^2.5",
         "php-coveralls/php-coveralls": "^2.1",
-        "object-calisthenics/phpcs-calisthenics-rules": "^3.3",
-        "roave/backward-compatibility-check": "^2.0"
+        "object-calisthenics/phpcs-calisthenics-rules": "^3.3"
     },
     "license": "MIT",
     "authors": [
