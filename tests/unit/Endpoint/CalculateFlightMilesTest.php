@@ -16,11 +16,11 @@ class CalculateFlightMilesTest extends EndpointAbstract
         $flightDate = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
 
         $calculateFlightMilesParameters = (new ValueObject\CalculateFlightMilesParameters(
-            'FRA',
-            'IST'
+            'IST',
+            'JFK'
         ))->withCabinCode()
         ->withCardType('EP')
-        ->withOperatingFlightNumber('TK1000')
+        ->withOperatingFlightNumber('TK1')
         ->withFlightDate(new DateTimeImmutable($flightDate));
         $response = $this->client->calculateFlightMiles($calculateFlightMilesParameters);
         $this->assertEquals(200, $response['status']);
