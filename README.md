@@ -41,4 +41,4 @@ $client = ClientBuilder::create()
 [See the list of endpoints](docs/endpoints/index.md)
 ### Disclaimer
 
-This API is not officially recognized by Turkish Airlines. 
+This TK API Client Library is not officially recognized by Turkish Airlines. 
