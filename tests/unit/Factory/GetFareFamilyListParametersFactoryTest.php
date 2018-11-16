@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit\Factory;
 
-use TK\SDK\Exception\InvalidArgumentException;
-use TK\SDK\ValueObject\Factory\GetFareFamilyListParametersFactory;
-use TK\SDK\ValueObject\GetFareFamilyListParameters;
+use TK\API\Exception\InvalidArgumentException;
+use TK\API\ValueObject\Factory\GetFareFamilyListParametersFactory;
+use TK\API\ValueObject\GetFareFamilyListParameters;
 
 class GetFareFamilyListParametersFactoryTest extends \Codeception\Test\Unit
 {

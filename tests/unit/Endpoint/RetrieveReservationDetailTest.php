@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit\Endpoint;
 
-use TK\SDK\ValueObject\RetrieveReservationDetailParameters;
+use TK\API\ValueObject\RetrieveReservationDetailParameters;
 
 class RetrieveReservationDetailTest extends EndpointAbstract
 {

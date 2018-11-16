@@ -4,8 +4,8 @@ declare(strict_types=1);
 namespace TK\Test\Unit\Endpoint;
 
 use DateTimeImmutable;
-use TK\SDK\Exception\InvalidArgumentException;
-use TK\SDK\ValueObject\CalculateAwardMilesWithTaxParameters;
+use TK\API\Exception\InvalidArgumentException;
+use TK\API\ValueObject\CalculateAwardMilesWithTaxParameters;
 
 class CalculateAwardMilesWithTaxTest extends EndpointAbstract
 {

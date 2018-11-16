@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit\Factory;
 
-use TK\SDK\Exception\InvalidArgumentException;
-use TK\SDK\ValueObject\Factory\RetrieveReservationDetailParametersFactory;
-use TK\SDK\ValueObject\RetrieveReservationDetailParameters;
+use TK\API\Exception\InvalidArgumentException;
+use TK\API\ValueObject\Factory\RetrieveReservationDetailParametersFactory;
+use TK\API\ValueObject\RetrieveReservationDetailParameters;
 
 class RetrieveReservationDetailParametersFactoryTest extends \Codeception\Test\Unit
 {

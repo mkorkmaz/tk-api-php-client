@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace TK\Test\Unit\Endpoint;
 
 use Dotenv;
-use TK\SDK\ClientBuilder;
+use TK\API\ClientBuilder;
 use Monolog\Logger;
 use Monolog\Handler\NullHandler;
 

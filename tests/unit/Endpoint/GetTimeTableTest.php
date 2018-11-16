@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace TK\Test\Unit\Endpoint;
 
 use DateTimeImmutable;
-use TK\SDK\ValueObject;
+use TK\API\ValueObject;
 
 class GetTimeTableTest extends EndpointAbstract
 {
@@ -42,7 +42,7 @@ class GetTimeTableTest extends EndpointAbstract
 
     /**
      * @test
-     * @expectedException \TK\SDK\Exception\InvalidArgumentException
+     * @expectedException \TK\API\Exception\InvalidArgumentException
      */
     public function shouldFailForInvalidScheduleType() : void
     {
@@ -71,7 +71,7 @@ class GetTimeTableTest extends EndpointAbstract
 
     /**
      * @test
-     * @expectedException \TK\SDK\Exception\InvalidArgumentException
+     * @expectedException \TK\API\Exception\InvalidArgumentException
      */
     public function shouldFailForInvalidAirportCode() : void
     {
@@ -100,7 +100,7 @@ class GetTimeTableTest extends EndpointAbstract
 
     /**
      * @test
-     * @expectedException \TK\SDK\Exception\InvalidArgumentException
+     * @expectedException \TK\API\Exception\InvalidArgumentException
      */
     public function shouldFailForInvalidLocation() : void
     {
@@ -108,7 +108,7 @@ class GetTimeTableTest extends EndpointAbstract
     }
     /**
      * @test
-     * @expectedException \TK\SDK\Exception\InvalidArgumentException
+     * @expectedException \TK\API\Exception\InvalidArgumentException
      */
     public function shouldFailForInvalidDurationWindowAfter() : void
     {
@@ -123,7 +123,7 @@ class GetTimeTableTest extends EndpointAbstract
 
     /**
      * @test
-     * @expectedException \TK\SDK\Exception\InvalidArgumentException
+     * @expectedException \TK\API\Exception\InvalidArgumentException
      */
     public function shouldFailForInvalidDurationWindowBefore() : void
     {
@@ -137,7 +137,7 @@ class GetTimeTableTest extends EndpointAbstract
 
     /**
      * @test
-     * @expectedException \TK\SDK\Exception\InvalidArgumentException
+     * @expectedException \TK\API\Exception\InvalidArgumentException
      */
     public function shouldFailForInvalidTripType() : void
     {

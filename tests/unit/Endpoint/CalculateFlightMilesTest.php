@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace TK\Test\Unit\Endpoint;
 
 use DateTimeImmutable;
-use TK\SDK\ValueObject;
+use TK\API\ValueObject;
 
 class CalculateFlightMilesTest extends EndpointAbstract
 {

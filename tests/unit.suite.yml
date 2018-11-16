@@ -4,7 +4,7 @@
 coverage:
     enabled: true
     include:
-        - src/SDK/*
+        - src/API/*
 actor: UnitTester
 modules:
     enabled:

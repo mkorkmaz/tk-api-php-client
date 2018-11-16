@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit\Factory;
 
-use TK\SDK\Exception\InvalidArgumentException;
-use TK\SDK\ValueObject\Factory\CalculateFlightMilesParametersFactory;
-use TK\SDK\ValueObject\CalculateFlightMilesParameters;
+use TK\API\Exception\InvalidArgumentException;
+use TK\API\ValueObject\Factory\CalculateFlightMilesParametersFactory;
+use TK\API\ValueObject\CalculateFlightMilesParameters;
 
 class CalculateFlightMilesParametersFactoryTest extends \Codeception\Test\Unit
 {

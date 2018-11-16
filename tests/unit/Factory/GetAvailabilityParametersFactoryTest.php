@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit\Factory;
 
-use TK\SDK\Exception\InvalidArgumentException;
-use TK\SDK\ValueObject\Factory\GetAvailabilityParametersFactory;
-use TK\SDK\ValueObject\GetAvailabilityParameters;
+use TK\API\Exception\InvalidArgumentException;
+use TK\API\ValueObject\Factory\GetAvailabilityParametersFactory;
+use TK\API\ValueObject\GetAvailabilityParameters;
 
 class GetAvailabilityParametersFactoryTest extends \Codeception\Test\Unit
 {

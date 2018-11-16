@@ -1,9 +1,9 @@
 <?php namespace Helper;
 
-use TK\SDK\ClientBuilder;
+use TK\API\ClientBuilder;
 use DateTimeImmutable;
-use TK\SDK\Helper\GetTimetableHelper;
-use TK\SDK\ValueObject;
+use TK\API\Helper\GetTimetableHelper;
+use TK\API\ValueObject;
 use Dotenv;
 
 class GetTimetableHelperTest extends \Codeception\Test\Unit

@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit\Factory;
 
-use TK\SDK\Exception\InvalidArgumentException;
-use TK\SDK\ValueObject\Factory\CalculateAwardMilesWithTaxParametersFactory;
-use TK\SDK\ValueObject\CalculateAwardMilesWithTaxParameters;
+use TK\API\Exception\InvalidArgumentException;
+use TK\API\ValueObject\Factory\CalculateAwardMilesWithTaxParametersFactory;
+use TK\API\ValueObject\CalculateAwardMilesWithTaxParameters;
 
 class CalculateAwardMilesWithTaxParametersFactoryTest extends \Codeception\Test\Unit
 {

@@ -1,7 +1,7 @@
 <?php
 namespace TK\Test\Unit\Helper;
 
-use TK\SDK\Helper\DurationConverter;
+use TK\API\Helper\DurationConverter;
 
 class DurationConverterTest extends \Codeception\Test\Unit
 {

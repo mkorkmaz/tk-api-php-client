@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit;
 
-use TK\SDK\Exception\RequestException;
-use TK\SDK\Client;
-use TK\SDK\ValueObject\Factory\RetrieveReservationDetailParametersFactory;
-use TK\SDK\ClientBuilder;
+use TK\API\Exception\RequestException;
+use TK\API\Client;
+use TK\API\ValueObject\Factory\RetrieveReservationDetailParametersFactory;
+use TK\API\ClientBuilder;
 use TK\Test\Unit\Resources\ExampleEndpoint;
 use Dotenv;
 use ReflectionMethod;
@@ -42,7 +42,7 @@ class ClientTest extends \Codeception\Test\Unit
 
     /**
      * @test
-     * @expectedException \TK\SDK\Exception\RequestException
+     * @expectedException \TK\API\Exception\RequestException
      */
     public function shouldThrowExceptionForFailure() : void
     {
@@ -59,7 +59,7 @@ JSON;
 
     /**
      * @test
-     * @expectedException \TK\SDK\Exception\BadMethodCallException
+     * @expectedException \TK\API\Exception\BadMethodCallException
      */
     public function shouldThrowExceptionForInvalidEndpoint() : void
     {
@@ -68,7 +68,7 @@ JSON;
 
     /**
      * @test
-     * @expectedException \TK\SDK\Exception\InvalidArgumentException
+     * @expectedException \TK\API\Exception\InvalidArgumentException
      */
     public function shouldThrowExceptionForInvalidArgument() : void
     {
@@ -77,7 +77,7 @@ JSON;
 
     /**
      * @test
-     * @expectedException \TK\SDK\Exception\RequestException
+     * @expectedException \TK\API\Exception\RequestException
      */
     public function shouldThrowExceptionForGuzzleRequestError() : void
     {

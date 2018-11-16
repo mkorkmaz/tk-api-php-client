@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit\Factory;
 
-use TK\SDK\Exception\InvalidArgumentException;
-use TK\SDK\ValueObject\Factory\GetTimetableParametersFactory;
-use TK\SDK\ValueObject\GetTimetableParameters;
+use TK\API\Exception\InvalidArgumentException;
+use TK\API\ValueObject\Factory\GetTimetableParametersFactory;
+use TK\API\ValueObject\GetTimetableParameters;
 
 class GetTimetableParametersFactoryTest extends \Codeception\Test\Unit
 {

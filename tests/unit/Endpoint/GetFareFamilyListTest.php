@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit\Endpoint;
 
-use TK\SDK\ValueObject;
+use TK\API\ValueObject;
 
 class GetFareFamilyListTest extends EndpointAbstract
 {

@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit\Endpoint;
 
-use TK\SDK\Exception\InvalidArgumentException;
-use TK\SDK\ValueObject;
+use TK\API\Exception\InvalidArgumentException;
+use TK\API\ValueObject;
 
 class GetPortListTest extends EndpointAbstract
 {

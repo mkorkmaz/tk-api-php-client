@@ -5,7 +5,7 @@ namespace TK\Test\Unit;
 
 use TypeError;
 use Dotenv;
-use TK\SDK\Environment;
+use TK\API\Environment;
 
 class EnvironmentTest extends \Codeception\Test\Unit
 {

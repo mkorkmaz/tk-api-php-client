@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace TK\Test\Unit\Factory;
 
-use TK\SDK\Exception\InvalidArgumentException;
-use TK\SDK\ValueObject\Factory\GetPortListParametersFactory;
-use TK\SDK\ValueObject\GetPortListParameters;
+use TK\API\Exception\InvalidArgumentException;
+use TK\API\ValueObject\Factory\GetPortListParametersFactory;
+use TK\API\ValueObject\GetPortListParameters;
 
 class GetPortListParametersFactoryTest extends \Codeception\Test\Unit
 {
