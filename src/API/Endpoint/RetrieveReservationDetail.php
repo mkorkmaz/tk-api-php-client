@@ -11,7 +11,6 @@ final class RetrieveReservationDetail extends EndpointAbstract implements Endpoi
     {
         $this->endpoint = '/retrieveReservationDetail';
         $this->responseRoot = 'retrieveReservationOTAResponse';
-        $this->httpRequestMethod = 'get';
         $this->queryParameters = $queryParameters->getValue();
     }
 }

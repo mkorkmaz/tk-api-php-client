@@ -31,7 +31,13 @@ class ClientTest extends \Codeception\Test\Unit
             $dotenv->load();
         }
         $this->client = ClientBuilder::create()
-            ->setEnvironment(getenv('TK_API_URL'), getenv('TK_API_KEY'), getenv('TK_API_SECRET'))
+            ->setEnvironment(
+                getenv('TK_API_URL'),
+                getenv('TK_API_KEY'),
+                getenv('TK_API_SECRET'),
+                getenv('TK_API_USERNAME'),
+                'MOBILE'
+            )
             ->setLogger()
             ->build();
     }

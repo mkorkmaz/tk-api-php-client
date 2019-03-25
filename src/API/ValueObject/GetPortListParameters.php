@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace TK\API\ValueObject;
 
 use TK\API\Exception\InvalidArgumentException;
+use function in_array;
 
 final class GetPortListParameters implements ValueObjectInterface
 {
@@ -26,7 +27,7 @@ final class GetPortListParameters implements ValueObjectInterface
 
     private function setAirlineCode(?string $airlineCode) : void
     {
-        if (!\in_array($airlineCode, self::$airlineCodeEnum, true)) {
+        if (! in_array($airlineCode, self::$airlineCodeEnum, true)) {
             throw new InvalidArgumentException(
                 'Invalid AirlineCode provided. Must be one of these: "TK", "AJ"'
             );
@@ -52,11 +53,12 @@ final class GetPortListParameters implements ValueObjectInterface
 
     public function getValue() : array
     {
-        $getPortListParameters = [
-            'airlineCode' => $this->airlineCode
-        ];
+        $getPortListParameters = [];
         if ($this->languageCode !== null) {
             $getPortListParameters['languageCode'] = $this->languageCode;
+        }
+        if ($this->airlineCode !== null) {
+            $getPortListParameters['airlineCode'] = $this->airlineCode;
         }
         return $getPortListParameters;
     }

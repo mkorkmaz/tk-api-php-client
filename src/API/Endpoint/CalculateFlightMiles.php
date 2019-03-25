@@ -12,5 +12,6 @@ final class CalculateFlightMiles extends EndpointAbstract implements EndpointInt
         $this->endpoint = '/calculateFlightMiles';
         $this->responseRoot = 'milesResponseDetail';
         $this->queryParameters = $queryParameters->getValue();
+        $this->requestHeaderRequired = false;
     }
 }

@@ -36,7 +36,7 @@ class RetrieveReservationDetailParametersFactoryTest extends \Codeception\Test\U
 JSON;
         $parameterObject = RetrieveReservationDetailParametersFactory::createFromJson($json);
         $this->assertInstanceOf(RetrieveReservationDetailParameters::class, $parameterObject);
-        $this->assertEquals(json_decode($json, true), $parameterObject->getValue());
+        $this->assertEquals(json_decode($json, true), $parameterObject->getValue()['retrieveReservationOTARequest']);
     }
 
     /**

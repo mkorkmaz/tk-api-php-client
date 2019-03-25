@@ -12,5 +12,6 @@ final class GetFareFamilyList extends EndpointAbstract implements EndpointInterf
         $this->endpoint = '/getFareFamilyList';
         $this->responseRoot = 'fareFamilyOTAResponse';
         $this->queryParameters = $queryParameters->getValue();
+        $this->requestHeaderRequired = false;
     }
 }

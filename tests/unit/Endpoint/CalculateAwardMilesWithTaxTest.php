@@ -14,14 +14,13 @@ class CalculateAwardMilesWithTaxTest extends EndpointAbstract
      */
     public function shouldGetResponseSuccessfully() : void
     {
-        $departureDate = gmdate('Y-m-d H:i:s', strtotime('-4 days'));
         $calculateAwardMilesWithTaxParameters = (new CalculateAwardMilesWithTaxParameters(
             CalculateAwardMilesWithTaxParameters::AWARD_TYPE_ECONOMY
         ))->withOneWay()
             ->withSeatGuaranteed()
-            ->withDepartureOrigin('IST')
-            ->withDepartureDestination('JFK')
-            ->withDepartureDate(new DateTimeImmutable($departureDate));
+            ->withDepartureOrigin('FRA')
+            ->withDepartureDestination('IST')
+            ->withDepartureDate(DateTimeImmutable::createFromFormat('Y-m-d H:i:s', '2017-04-21 00:00:00'));
 
         $response = $this->client->calculateAwardMilesWithTax($calculateAwardMilesWithTaxParameters);
         $this->assertEquals(200, $response['status']);
@@ -34,16 +33,14 @@ class CalculateAwardMilesWithTaxTest extends EndpointAbstract
      */
     public function shouldGetResponseSuccessfullyForDifferentInputs() : void
     {
-        $arrivalDate = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
-
         $calculateAwardMilesWithTaxParameters = (new CalculateAwardMilesWithTaxParameters(
             CalculateAwardMilesWithTaxParameters::AWARD_TYPE_ECONOMY
         ))->withOneWay()
             ->withSeatGuaranteed()
-            ->withPassengerType('FFY')
-            ->withArrivalOrigin('IST')
-            ->withArrivalDestination('JFK')
-            ->withArrivalDate(new DateTimeImmutable($arrivalDate));
+            //->withPassengerType('ADT')
+            ->withArrivalOrigin('FRA')
+            ->withArrivalDestination('IST')
+            ->withArrivalDate(DateTimeImmutable::createFromFormat('Y-m-d H:i:s', '2017-04-23 00:00:00'));
 
         $response = $this->client->calculateAwardMilesWithTax($calculateAwardMilesWithTaxParameters);
         $this->assertEquals(200, $response['status']);

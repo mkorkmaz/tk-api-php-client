@@ -21,9 +21,12 @@ final class ClientBuilder
     public function setEnvironment(
         string $apiUrl,
         string $apiKey,
-        string $apiSecret
+        string $apiSecret,
+        ?string $clientUsername = null,
+        ?string $appName = null,
+        ?string $channel = null
     ) {
-        $this->environment = new Environment($apiUrl, $apiKey, $apiSecret);
+        $this->environment = new Environment($apiUrl, $apiKey, $apiSecret, $clientUsername, $appName, $channel);
         return $this;
     }
 

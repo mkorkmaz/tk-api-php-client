@@ -2,13 +2,17 @@
 
 namespace TK\API\Endpoint;
 
+use TK\API\Client;
+
 abstract class EndpointAbstract
 {
+
     protected $endpoint;
     protected $queryParameters = [];
     protected $headers = [];
-    protected $httpRequestMethod = 'POST';
+    protected $httpRequestMethod = Client::HTTP_POST;
     protected $responseRoot = '';
+    protected $requestHeaderRequired = true;
 
     public function getEndpoint() : string
     {
@@ -33,5 +37,10 @@ abstract class EndpointAbstract
     public function getResponseRoot() : string
     {
         return $this->responseRoot;
+    }
+
+    public function doesRequireRequestHeaders() : bool
+    {
+        return $this->requestHeaderRequired;
     }
 }

@@ -12,5 +12,6 @@ final class CalculateAwardMilesWithTax extends EndpointAbstract implements Endpo
         $this->endpoint = '/calculateAwardMilesWithTax';
         $this->responseRoot = 'return';
         $this->queryParameters = $queryParameters->getValue();
+        $this->requestHeaderRequired = false;
     }
 }

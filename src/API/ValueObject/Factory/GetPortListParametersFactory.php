@@ -19,7 +19,7 @@ final class GetPortListParametersFactory implements ValueObjectFactoryInterface
         if (array_key_exists('languageCode', $parameters)) {
             $getPortListParameters = $getPortListParameters->withLanguageCode($parameters['languageCode']);
         }
-        return$getPortListParameters;
+        return $getPortListParameters;
     }
 
 

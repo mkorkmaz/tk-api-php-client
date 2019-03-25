@@ -17,8 +17,10 @@ class RetrieveReservationDetailParameters implements ValueObjectInterface
     public function getValue() : array
     {
         return [
-            'UniqueId' => $this->uniqueId,
-            'Surname' => $this->surname
+            'retrieveReservationOTARequest' => [
+                'UniqueId' => $this->uniqueId,
+                'Surname' => $this->surname
+            ]
         ];
     }
 }

@@ -10,4 +10,5 @@ interface EndpointInterface
     public function getQueryParams() : array;
     public function getHttpRequestMethod() : string;
     public function getResponseRoot() : string;
+    public function doesRequireRequestHeaders() : bool;
 }

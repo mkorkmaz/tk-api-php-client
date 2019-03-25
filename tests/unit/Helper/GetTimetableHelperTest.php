@@ -21,7 +21,12 @@ class GetTimetableHelperTest extends \Codeception\Test\Unit
             $dotenv->load();
         }
         $client = ClientBuilder::create()
-            ->setEnvironment(getenv('TK_API_URL'), getenv('TK_API_KEY'), getenv('TK_API_SECRET'))
+            ->setEnvironment(
+                getenv('TK_API_URL'),
+                getenv('TK_API_KEY'),
+                getenv('TK_API_SECRET'),
+                getenv('TK_API_USERNAME')
+            )
             ->build();
         $departureTime = gmdate('Y-m-d H:i:s', strtotime('+4 days'));
         $originLocation = new ValueObject\Location('IST', ValueObject\Location::MULTIPLE_AIRPORT_TRUE);
